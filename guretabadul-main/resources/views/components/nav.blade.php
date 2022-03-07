@@ -36,6 +36,10 @@
             <li class="nav-item">
               <a class="nav-link  text-color-GureB me-3" href="{{route('modal_cursos.index')}}">{!! trans('jokes.Cursos') !!}</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link  text-color-GureB me-3" href="{{route('modal_tienda.index')}}">{!! trans('jokes.Tienda') !!}</a>
+            </li>
+
 
 
 

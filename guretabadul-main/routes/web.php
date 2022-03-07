@@ -18,6 +18,7 @@ use App\Http\Controllers\AdminWebController;
 use App\Http\Controllers\VerPerfilesController;
 use App\Http\Controllers\RegisterAdminController;
 use App\Http\Controllers\IntercambiosAdminController;
+use App\Http\Controllers\TiendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,9 @@ Route::get('acceder', [AccederController::class,'index'])->name('modal_acceder.i
 
 // modal crear admin
 
+// Tienda
+
+Route::get('tiendas', [TiendaController::class,'index'])->name('modal_tienda.index');
 
 // modal usermatchs
 Route::get('usermatchs', [MatchAdminController::class,'index'])->name('modal_admin_usermatch.index');
