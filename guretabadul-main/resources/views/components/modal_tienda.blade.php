@@ -6,7 +6,7 @@
     <div class="modal-dialog modal-Gure">
         <div class="modal-content  modal-Gure bg-gradient text-color-GureO h-50">
             <div class="modal-header-gure text-center ">
-                <h5 class="modal-title " id="exampleModalLabel">ADMINISTRADORES WEB</h5>
+                <h5 class="modal-title " id="exampleModalLabel">TIENDA</h5>
                 <a href="{{route ('home')}}"><button type="button" class="btn-close" sdata-bs-dismiss="modal"
                         aria-label="Close"></button></a>
             </div>
