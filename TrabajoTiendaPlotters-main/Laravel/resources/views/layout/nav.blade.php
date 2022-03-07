@@ -22,7 +22,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<<<<<<< HEAD
       <ul style="margin-left:50%;" class="navbar-nav mr-auto">
+=======
+      <ul style="margin-left:30%;" class="navbar-nav mr-auto">
+>>>>>>> 5a846fe8c3e171033f08bde9753a26b1af5c9a34
         <li class="nav-item active">
           <a class="nav-link" aria-current="page" href="{{route('inicio.index')}}">Inicio</a>
         </li>
