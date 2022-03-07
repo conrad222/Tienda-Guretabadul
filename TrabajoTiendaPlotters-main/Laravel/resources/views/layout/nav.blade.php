@@ -15,14 +15,14 @@
                     }).go();
                   </script>
  
- <a class="nav-link active" style="font-family:cursive; color:#000" >Bienvenida <b style="color: aquamarine">{{auth()->user()->name}}</b></a>
+ 
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul style="margin-left:50%;" class="navbar-nav mr-auto">
+      <ul style="margin-left:35%;" class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" aria-current="page" href="{{route('inicio.index')}}">Inicio</a>
         </li>

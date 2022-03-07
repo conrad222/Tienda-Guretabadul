@@ -1,15 +1,28 @@
 <?php
     Illuminate\Support\Facades\App::setLocale(session('idioma'));
 ?>
-<nav class="navbar navbar-expand-lg navbar-light">
+<script src="typed.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://unpkg.com/typeit@8.2.0/dist/index.umd.js"></script>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: repeating-linear-gradient(45deg, #4e9b7a, #6f8ba7 100px); font-weight: bold; font-family: cursive;
+">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="../../Nav/img/LogoTabadul_32px.jpg" alt=""></a>
-    <a class="navbar-brand" href="#">Gure Tabadul</a>
+    
+    <a id="tabadul" class="navbar-brand" href="home"></a>
+    <script>
+                    new TypeIt("#tabadul", {
+                      strings: "Gure Tabadul",
+                    }).go();
+                  </script>
+ 
+ 
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul style="margin-left:30%;" class="navbar-nav mr-auto">
+      <ul style="margin-left:35%;" class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" aria-current="page" href="<?php echo e(route('inicio.index')); ?>">Inicio</a>
         </li>

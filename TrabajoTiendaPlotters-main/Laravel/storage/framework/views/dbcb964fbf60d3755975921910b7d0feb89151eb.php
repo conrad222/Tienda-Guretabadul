@@ -69,4 +69,10 @@
   }
 }
 
+.container-f{
+padding-right: 0.75rem;
+padding-left: 0.75rem;
+margin-right: auto;
+margin-left: auto;
+}
 </style><?php /**PATH D:\UniServerZ\www\Tienda-Guretabadul\TrabajoTiendaPlotters-main\Laravel\resources\views/layout/estilos.blade.php ENDPATH**/ ?>

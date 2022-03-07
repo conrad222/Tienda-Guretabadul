@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{URL::asset('css/footer.css')}}">
 @endsection
 @section('contenido')
-<img src="{{url('img/FondoInicioGureTabadul.png')}}">
+<img src="{{url('img/imagen2.png')}}">
 <h2></h2>
 
 <div class="servicios">

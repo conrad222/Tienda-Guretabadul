@@ -1,10 +1,11 @@
+
 <?php $__env->startSection('Titulo','Inicio'); ?>
 <?php $__env->startSection('estilos'); ?>
 <link rel="stylesheet" href="<?php echo e(URL::asset('css/inicio.css')); ?>">
 <link rel="stylesheet" href="<?php echo e(URL::asset('css/footer.css')); ?>">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('contenido'); ?>
-<img src="<?php echo e(url('img/FondoInicioGureTabadul.png')); ?>">
+<img src="<?php echo e(url('img/imagen2.png')); ?>">
 <h2></h2>
 
 <div class="servicios">

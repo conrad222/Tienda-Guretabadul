@@ -69,4 +69,10 @@
   }
 }
 
+.container-f{
+padding-right: 0.75rem;
+padding-left: 0.75rem;
+margin-right: auto;
+margin-left: auto;
+}
 </style>
