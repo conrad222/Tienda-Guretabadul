@@ -75,4 +75,64 @@ padding-left: 0.75rem;
 margin-right: auto;
 margin-left: auto;
 }
+
+.colores {
+    transition: background-color 1s;
+    border-radius:100%;
+    padding: 0.5rem 1rem;
+    color: #64a19d;
+    text-decoration: none;
+    -webkit-animation: colorchange 20s infinite alternate;
+}
+
+.colores.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    color: grey;
+  }
+  10% {
+    color: #8e44ad;
+  }
+  20% {
+    color: #1abc9c;
+  }
+  30% {
+    color: #d35400;
+  }
+  40% {
+    color: #924444;
+  }
+  50% {
+    color: crimson;
+  }
+  60% {
+    color: blue;
+  }
+  70% {
+    color: #2980b9;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: chartreuse;
+  }
+  100% {
+    color: pink;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .colores{
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+
 </style>
