@@ -1,0 +1,43 @@
+$colorFondoCarta:#43B582;
+$colorBorde:#161616;
+div.card {
+    margin-left: 8%;
+    margin-bottom: 2%;
+    font-family: 'Poppins';
+    margin-top: 2%;
+    border-radius: 45px;
+    background-color: $colorFondoCarta;
+    border: solid 3px $colorBorde;
+  }
+  
+  .cursos {
+    /* display: flex !important; */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        
+  }
+  
+  .imagen {
+    text-align: center;
+    width: 100%;
+  border-top-right-radius: 35px;
+  border-top-left-radius: 35px;
+  }
+  
+  .titulo {
+    margin-left: 2%;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    margin-left: 3%;
+  }
+  
+  .card-body {
+    padding-top: 0%;
+    font-weight: bold;
+  }
+  /*# sourceMappingURL=curso.css.map */

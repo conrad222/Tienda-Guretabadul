@@ -1,0 +1,289 @@
+
+::-webkit-scrollbar{
+    display: none;
+}
+$colorFondoBody:#BCDDD4;
+$colorLetraBody:#1a202c;
+$sombraCarta1:#0000001a;
+$sombraCarta2:#0000000f;
+$fondoCarta:#3AA877;
+$bordeCarta:#00000020;
+$bsGray300:#e2e8f0;
+$fondoBoton:#B91B55;
+$colorBorde:#161616;
+#perfil {
+  margin-left: 35%;
+  background-color: $fondoCarta;
+  border-style: none;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
+#intereses {
+  margin-left: 33%;
+  background-color: $fondoCarta;
+  border-style: none;
+  margin-top: 5%;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
+#conocimientos {
+  margin-left: 28%;
+  background-color: $fondoCarta;
+  border-style: none;
+  margin-top: 5%;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
+#talleres {
+  margin-left: 31%;
+  background-color: $fondoCarta;
+  border-style: none;
+  margin-top: 5%;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
+#cursos {
+  margin-left: 32%;
+  background-color: $fondoCarta;
+  border-style: none;
+  margin-top: 5%;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
+#interesesDiv {
+  display: none;
+}
+
+#conocimientosDiv {
+  display: none;
+}
+
+#talleresDiv {
+  display: none;
+  
+}
+
+#cursosDiv {
+  display: none;
+}
+
+body {
+  margin-top: 20px;
+  color: $colorLetraBody;
+  text-align: left;
+  background-color: $colorFondoBody;
+}
+
+.main-body {
+  padding: 15px;
+}
+
+.card {
+  -webkit-box-shadow: 0 1px 3px 0 $sombraCarta1, 0 1px 2px 0 $sombraCarta2;
+          box-shadow: 0 1px 3px 0 $sombraCarta1, 0 1px 2px 0 $sombraCarta2;
+}
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: $fondoCarta;
+  background-clip: border-box;
+  border: 0 solid #00000020;
+  border-radius: .25rem;
+}
+
+.card-bodyR {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+  border: 2px solid $colorBorde;
+}
+
+.gutters-sm {
+  margin-right: -8px;
+  margin-left: -8px;
+}
+
+.gutters-sm > .col, .gutters-sm > [class*=col-] {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.mb-3, .my-3 {
+  margin-bottom: 1rem !important;
+ 
+}
+
+.bg-gray-300 {
+  background-color: $bsGray300;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.shadow-none {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+div.card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 509px;
+  padding-top: 100px;
+}
+
+.talleresInfo {
+  margin-top: 2%;
+  padding: 1%;
+  border: 2px solid $colorBorde;
+  width: 30%;
+  float: left;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 2%;
+}
+
+.cursosInfo {
+  margin-top: 2%;
+  padding: 1%;
+  border: 2px solid $colorBorde;
+  width: 30%;
+  float: left;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 2%;
+}
+
+.nombre {
+  font-family: 'Poppins';
+  font-weight: bold;
+  margin-top: 5%;
+}
+
+.correo {
+  font-family: 'Poppins';
+  font-weight: bold;
+  margin-top: 2%;
+}
+
+.pais {
+  font-family: 'Poppins';
+  font-weight: bold;
+  margin-top: 5%;
+}
+
+.fecha {
+  font-family: 'Poppins';
+  font-weight: bold;
+  margin-top: 4%;
+}
+
+.telefono {
+  font-family: 'Poppins';
+  font-weight: bold;
+  margin-top: 5%;
+}
+
+#botonEditar {
+  font-family: 'Poppins';
+  font-weight: bold;
+  background-color: $fondoBoton;
+  border-style: none;
+  padding: 1%;
+  border-radius: 13px;
+}
+
+#botonGuardar {
+  font-family: 'Poppins';
+  font-weight: bold;
+  background-color: $fondoBoton;
+  border-style: none;
+  padding: 1%;
+  border-radius: 13px;
+}
+
+#botonCancelar {
+  font-family: 'Poppins';
+  font-weight: bold;
+  background-color: $fondoBoton;
+  border-style: none;
+  padding: 1%;
+  border-radius: 13px;
+}
+.agrega{
+  position: relative;
+  
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-size: 1.3rem;
+
+}
+.intereses{
+  border: 2px solid $colorBorde;
+  border-radius: 32px;
+  
+}
+.lista{
+  border: 2px solid $colorBorde;
+  width: 25%;
+}
+.boton{
+  width: 51px;
+  background-color: $fondoBoton;
+  border: 2px solid $colorBorde;
+  border-radius: 32px;
+}
+h2{
+  margin-top: 0;
+  color: $colorBorde;
+  font-family: 'Poppins';
+
+}
+.card-bodyL{
+  border: 2px solid #4e4d4d;
+}
+
+@media (max-width: 375px) {
+  .cursosInfo {
+    width: 97%;
+    margin-bottom: 4%;
+  }
+  .talleresInfo {
+    width: 97%;
+    margin-bottom: 4%;
+  }
+  ul.lista{
+    margin-top: 3%;
+    width: 38%;
+  }
+  button.boton{
+    margin-top: 2%;
+  }
+}
+/*# sourceMappingURL=perfil.css.map */  
