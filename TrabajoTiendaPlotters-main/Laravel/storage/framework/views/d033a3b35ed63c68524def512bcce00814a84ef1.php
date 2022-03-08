@@ -13,7 +13,7 @@
     <img class="imagen" src="storage/<?php echo e($curso->imagenes()->first()->ruta); ?>" class="card-img-top" alt="">
 
     </a>
-    <div class="card-body">
+    <div class="card-body" style="font-family: cursive; text-align:center;">
       <h5 class="titulo"><?php echo e($curso->nombre); ?></h5>
       <p class="card-text"><i class="fas fa-calendar-check"></i>&nbsp;&nbsp;<?php echo e($curso->Fecha_ini); ?></p>
       <p class="card-text"><i class="fas fa-calendar-times"></i>&nbsp;&nbsp;<?php echo e($curso->Fecha_fin); ?></p>

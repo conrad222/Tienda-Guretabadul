@@ -13,7 +13,7 @@
     <img class="imagen" src="storage/{{$curso->imagenes()->first()->ruta}}" class="card-img-top" alt="">
 
     </a>
-    <div class="card-body">
+    <div class="card-body" style="font-family: cursive; text-align:center;">
       <h5 class="titulo">{{$curso->nombre}}</h5>
       <p class="card-text"><i class="fas fa-calendar-check"></i>&nbsp;&nbsp;{{$curso->Fecha_ini}}</p>
       <p class="card-text"><i class="fas fa-calendar-times"></i>&nbsp;&nbsp;{{$curso->Fecha_fin}}</p>

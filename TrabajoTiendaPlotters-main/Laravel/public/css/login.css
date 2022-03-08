@@ -6,11 +6,11 @@
 div.card-header {
   background-color: #B91B55;
   color: white;
-  font-family: 'Poppins';
   font-size: 2em;
   padding-left: 40%;
   border-top-right-radius: 16px !important;
   border-top-left-radius: 16px !important;
+  
 }
 
 div.card-body {

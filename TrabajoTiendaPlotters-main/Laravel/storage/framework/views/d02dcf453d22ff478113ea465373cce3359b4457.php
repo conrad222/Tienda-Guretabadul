@@ -25,7 +25,7 @@
 
 </a>
 
-    <div class="card-body">
+    <div class="card-body" style="font-family: cursive; text-align:center;">
       <h5 class="titulo"><?php echo e($taller->Título); ?></h5>
       <p class="card-text"><i class="fas fa-calendar-check"></i>
         <?php echo e($taller->Fecha_comienzo); ?></p>
