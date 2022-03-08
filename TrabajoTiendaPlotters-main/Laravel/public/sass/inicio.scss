@@ -7,6 +7,7 @@
   width: 100%;
   background-image: cover;
   padding-right: 80px;
+  padding-right: 125px;
 
 }
 
@@ -16,13 +17,23 @@
 
 }
 
+.dosdivs{
+  display: flex;
+  flex-direction: row;
+  margin-left:250px;
+}
+
+
 .titulo{
   font-family: 'Poppins';
   font-weight: bold;
   text-align: center;  
-  padding-top: 6%;
   font-size: 2.5rem;
   text-transform: uppercase;
+}
+
+.servicios{
+  margin-right: 100px;
 }
 .flexbox-containerP{
   display: flex;
@@ -82,13 +93,13 @@
 .igualdad{
   width: 61px;
   position: absolute;
-  left: 53%;
+  left: 27%;
   margin-top: 0.5%;
 }
 .unidad{
   width: 64px;
   position: absolute;
-  left: 53%;
+  left: 27%;
 }
 .flexbox-containerQ{
   display: flex;
