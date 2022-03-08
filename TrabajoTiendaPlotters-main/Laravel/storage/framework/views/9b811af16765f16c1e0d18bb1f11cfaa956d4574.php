@@ -30,17 +30,17 @@
     </div>
     <div class="nosotros" style="padding-left:50px; ">
         <h3 class="titulo" style="margin-bottom: 30px; margin-top: 20px;">¿Quiénes Somos?</h3>
-        <h4 class="subtitulo" style="margin-bottom: 100px;">APRENDER Y COMPARTE</h4>
+        <h4 class="subtitulo" style="margin-bottom: 100px;">APRENDE Y COMPARTE</h4>
         <div class="flexbox-containerQ">
             <div class="texto">
-            Somos un proyecto de ayuda a las mujeres que quieran relacionarse con otras personas para saber más acerca de sus culturas, religiones, y experiencias personales y entender en la situación en la que están para apoyarlas.
-            Estamos aquí para ayudarnos, porque podemos ser más de lo que somos solo si tenemos la intención.</div>
+            Somos un proyecto de ayuda a las mujeres que quieran relacionarse con otras personas para saber más acerca de sus culturas, religiones, experiencias personales y entender en la situación en la que están para apoyarlas.
+            Tenemos profesionales cualificados que pueden enseñar a los clientes en los talleres y cursillos que se darán en nuestros puntos de encuentro.</div>
             
 
     </div>
 </div>
 </div>
-<h3 class="titulo">Colaboradores</h3>
+<h3 class="titulo" style="margin-bottom:30px;">Colaboradores</h3>
 <div class="sponsors">
     <?php $__currentLoopData = $sponsors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sponsor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="sponsor">
