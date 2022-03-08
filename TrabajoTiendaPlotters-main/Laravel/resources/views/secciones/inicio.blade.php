@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{URL::asset('css/footer.css')}}">
 @endsection
 @section('contenido')
-<div class="slider">
+<div class="slider" >
     <ul>
         <li style="list-style:none"><img src="{{url('img/imagen1.png')}}" alt="hola" ></li>
         <li style="list-style:none"><img src="{{url('img/imagen2.png')}}"></li>
@@ -13,10 +13,10 @@
 
 </div>
 <h2></h2>
-<div class="dosdivs">
+<div class="dosdivs" style="margin-bottom:50px;">
     <div class="servicios" >
-        <h3 class="titulo">¿A que nos dedicamos?</h3>
-        <h4 class="subtitulo">INTERCAMBIOS CULTURALES</h4>
+        <h3 class="titulo" style="margin-bottom: 30px; margin-top: 20px;">¿Qué Hacemos?</h3>
+        <h4 class="subtitulo" style="margin-bottom: 100px;">INTERCAMBIOS CULTURALES</h4>
         <div class="flexbox-containerP">
         <div class="flexbox-container">
             <div class="servicio1"><label><img class="corazon" src="{{url('img/amor.png')}}"></label><h4 class="teeexto">Cultivar actitudes interculturales positivas.</h4></div>
@@ -28,13 +28,14 @@
         </div>
         </div>
     </div>
-    <div class="nosotros" style="padding-left:50px;">
-        <h3 class="titulo">¿Quienes <br>Somos?</h3>
-        <h4 class="subtitulo">APRENDER Y COMPARTE</h4>
+    <div class="nosotros" style="padding-left:50px; ">
+        <h3 class="titulo" style="margin-bottom: 30px; margin-top: 20px;">¿Quiénes Somos?</h3>
+        <h4 class="subtitulo" style="margin-bottom: 100px;">APRENDER Y COMPARTE</h4>
         <div class="flexbox-containerQ">
-            <div class="texto">Conectamos a mujeres con inquietudes para que se enriquezcan entre ellas y así crecer como personas. Solo queremos que abras tu mente y contactes con otras mujeres de las que puedes aprender y a las que puedes enseñar.
-
-                Estamos aquí para ayudarnos, porque podemos ser más de lo que somos solo si tenemos la intención.</div>
+            <div class="texto">
+            Somos un proyecto de ayuda a las mujeres que quieran relacionarse con otras personas para saber más acerca de sus culturas, religiones, y experiencias personales y entender en la situación en la que están para apoyarlas.
+            Estamos aquí para ayudarnos, porque podemos ser más de lo que somos solo si tenemos la intención.</div>
+            
 
     </div>
 </div>
