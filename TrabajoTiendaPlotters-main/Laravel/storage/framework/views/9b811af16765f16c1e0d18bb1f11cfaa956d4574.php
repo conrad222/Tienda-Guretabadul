@@ -5,7 +5,13 @@
 <link rel="stylesheet" href="<?php echo e(URL::asset('css/footer.css')); ?>">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('contenido'); ?>
-<img src="<?php echo e(url('img/imagen2.png')); ?>">
+<div class="slider">
+    <ul>
+        <li style="list-style:none"><img src="<?php echo e(url('img/imagen2.png')); ?>" ></li>
+        <li style="list-style:none"><img src="<?php echo e(url('img/imagen1.png')); ?>" alt="hola"></li>
+    </ul>
+
+</div>
 <h2></h2>
 
 <div class="servicios">

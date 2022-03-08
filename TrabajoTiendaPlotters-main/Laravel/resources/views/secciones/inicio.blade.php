@@ -5,7 +5,13 @@
 <link rel="stylesheet" href="{{URL::asset('css/footer.css')}}">
 @endsection
 @section('contenido')
-<img src="{{url('img/imagen2.png')}}">
+<div class="slider">
+    <ul>
+        <li style="list-style:none"><img src="{{url('img/imagen2.png')}}" ></li>
+        <li style="list-style:none"><img src="{{url('img/imagen1.png')}}" alt="hola"></li>
+    </ul>
+
+</div>
 <h2></h2>
 
 <div class="servicios">

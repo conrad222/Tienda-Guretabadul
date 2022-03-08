@@ -3,8 +3,16 @@
 }
 
 img {
-  width: 100%;
-  background-image: cover;
+  padding-top: 70px;
+  width: 70%;
+  display: flex;
+
+}
+
+.slider ul{
+  display: flex;
+  flex-direction: row;
+
 }
 
 .titulo{
