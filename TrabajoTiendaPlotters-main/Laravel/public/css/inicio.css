@@ -1,3 +1,7 @@
+*{
+  font-weight: bold;
+  font-family: cursive;
+}
 ::-webkit-scrollbar {
   display: none;
 }
@@ -32,8 +36,6 @@
 
 }
 .titulo {
-  font-family: 'Poppins';
-  font-weight: bold;
   text-align: center;
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -72,7 +74,6 @@
 
 .subtitulo {
   text-align: center;
-  font-family: 'Poppins';
   color: #B32F60;
   font-size: 1.5rem;
   font-weight: bold;

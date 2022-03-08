@@ -36,7 +36,7 @@
 
         @if(!Auth::check())
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{route('login')}}">Inicio Sesion</a>
+          <a class="nav-link" aria-current="page" href="{{route('login')}}">Inicio Sesión</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{{route('register')}}">Registrarse</a>
