@@ -2,10 +2,11 @@
   display: none;
 }
 
-img {
+.slider img {
   padding-top: 70px;
   width: 100%;
   background-image: cover;
+  padding-right: 80px;
  
 }
 
