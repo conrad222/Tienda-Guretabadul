@@ -59,7 +59,7 @@
 
 body {
   margin-top: 118px;
-  color: #1a202c;
+  color: #126a34;
   text-align: left;
   background-color: #BCDDD4;
 }
@@ -74,20 +74,20 @@ body {
 }
 
 .card {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #70add5;
-  background-clip: border-box;
-  border: 0 solid #00000020;
-  border-radius: .25rem;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #70add5;
+    background-clip: border-box;
+    border: 7px solid #39d173;
+    border-radius: 0.25rem;
 }
 
 .card-bodyR {
@@ -197,7 +197,7 @@ div.card-body {
 #botonEditar {
   font-family: 'Poppins';
   font-weight: bold;
-  background-color: #B91B55;
+  background-color: #126a34;
   border-style: none;
   padding: 1%;
   border-radius: 13px;
@@ -206,7 +206,7 @@ div.card-body {
 #botonGuardar {
   font-family: 'Poppins';
   font-weight: bold;
-  background-color: #B91B55;
+  background-color: #126a34;
   border-style: none;
   padding: 1%;
   border-radius: 13px;
@@ -215,7 +215,7 @@ div.card-body {
 #botonCancelar {
   font-family: 'Poppins';
   font-weight: bold;
-  background-color: #B91B55;
+  background-color: #126a34;
   border-style: none;
   padding: 1%;
   border-radius: 13px;

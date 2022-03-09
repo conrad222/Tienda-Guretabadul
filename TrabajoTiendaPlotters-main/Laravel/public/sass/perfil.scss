@@ -3,13 +3,13 @@
     display: none;
 }
 $colorFondoBody:#BCDDD4;
-$colorLetraBody:#1a202c;
+$colorLetraBody:#126a34;
 $sombraCarta1:#0000001a;
 $sombraCarta2:#0000000f;
 $fondoCarta:#70add5;
 $bordeCarta:#00000020;
 $bsGray300:#e2e8f0;
-$fondoBoton:#B91B55;
+$fondoBoton:#126a34;
 $colorBorde:#161616;
 #perfil {
   margin-left: 35%;
@@ -96,7 +96,7 @@ body {
   word-wrap: break-word;
   background-color: $fondoCarta;
   background-clip: border-box;
-  border: 0 solid #00000020;
+  border: 7px solid #39d173;
   border-radius: .25rem;
 }
 
