@@ -46,8 +46,6 @@
         <div class="cuadroImagen">
     <img class="sponsorFoto" src="storage/{{$sponsor->ruta_img_sponsor}}">
         </div>
-    <p>{{$sponsor->nombre}}</p>
-    <p>{{$sponsor->descripción}}</p>
     </div>   
 
 

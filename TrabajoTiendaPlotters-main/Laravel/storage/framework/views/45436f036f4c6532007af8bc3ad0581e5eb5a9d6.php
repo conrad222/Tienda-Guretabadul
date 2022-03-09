@@ -46,8 +46,6 @@
         <div class="cuadroImagen">
     <img class="sponsorFoto" src="storage/<?php echo e($sponsor->ruta_img_sponsor); ?>">
         </div>
-    <p><?php echo e($sponsor->nombre); ?></p>
-    <p><?php echo e($sponsor->descripción); ?></p>
     </div>   
 
 
