@@ -38,6 +38,7 @@
           </li>
 
         <?php if(!Auth::check()): ?>
+        
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo e(route('login')); ?>">Inicio Sesión</a>
         </li>
@@ -55,6 +56,7 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo e(route('perfil.index')); ?>">Ver perfil</a>
         </li>
+        <a class="nav-link active" style="font-family:cursive; color:#000" >Bienvenida <b style="color: aquamarine"><?php echo e(auth()->user()->name); ?></b></a>
 
         <?php endif; ?>
 
