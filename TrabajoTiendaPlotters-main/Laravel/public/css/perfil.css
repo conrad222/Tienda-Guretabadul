@@ -4,7 +4,6 @@
 
 #perfil {
   margin-left: 35%;
-  background-color: #3AA877;
   border-style: none;
   font-family: 'Poppins';
   font-weight: bold;
@@ -12,7 +11,6 @@
 
 #intereses {
   margin-left: 33%;
-  background-color: #3AA877;
   border-style: none;
   margin-top: 5%;
   font-family: 'Poppins';
@@ -21,7 +19,6 @@
 
 #conocimientos {
   margin-left: 28%;
-  background-color: #3AA877;
   border-style: none;
   margin-top: 5%;
   font-family: 'Poppins';
@@ -30,7 +27,6 @@
 
 #talleres {
   margin-left: 31%;
-  background-color: #3AA877;
   border-style: none;
   margin-top: 5%;
   font-family: 'Poppins';
@@ -39,7 +35,6 @@
 
 #cursos {
   margin-left: 32%;
-  background-color: #3AA877;
   border-style: none;
   margin-top: 5%;
   font-family: 'Poppins';
@@ -63,7 +58,7 @@
 }
 
 body {
-  margin-top: 20px;
+  margin-top: 118px;
   color: #1a202c;
   text-align: left;
   background-color: #BCDDD4;
@@ -89,7 +84,7 @@ body {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #3AA877;
+  background-color: #70add5;
   background-clip: border-box;
   border: 0 solid #00000020;
   border-radius: .25rem;
