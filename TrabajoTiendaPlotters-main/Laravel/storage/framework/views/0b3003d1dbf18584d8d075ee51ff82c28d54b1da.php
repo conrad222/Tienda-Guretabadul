@@ -33,6 +33,9 @@
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="<?php echo e(route('tienda.index')); ?>">Tienda</a>
+          </li>
 
         <?php if(!Auth::check()): ?>
         <li class="nav-item">
