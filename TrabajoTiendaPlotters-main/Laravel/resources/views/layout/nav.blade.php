@@ -20,10 +20,6 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul style="margin-left:35%;" class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" aria-current="page" href="{{route('inicio.index')}}">Inicio</a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('cursos.index')}}">Cursos</a>
                 </li>
