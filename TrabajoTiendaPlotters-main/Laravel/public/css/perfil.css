@@ -110,11 +110,9 @@ body {
     border: 7px solid #39d173;
     border-radius: 0.25rem;
     border-radius: 0.25rem;
-    margin-right: -25em;
-    margin-left: 23em;
-
+    margin-right: -21em;
+    margin-left: 17em;
 }
-
 
 
 
@@ -262,7 +260,7 @@ div.card-body {
   border-style: none;
   padding: 1%;
   border-radius: 13px;
-  margin-left: 21em;
+  margin-left: 5em;
 }
 
 
