@@ -53,9 +53,6 @@
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{route('tienda.index')}}">Tienda</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{{route('perfil.index')}}">Ver perfil</a>
         </li>
 
