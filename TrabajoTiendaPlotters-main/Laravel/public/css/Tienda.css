@@ -3,41 +3,18 @@
     font-family: cursive;
   }
   
-  div.card {
-      margin-left: 8%;
-      margin-bottom: 2%;
-      font-family: 'Poppins';
-      margin-top: 20%;
-      border-radius: 1px;
-      background-color: #70add5;
-      border: solid 7px #126a34;
+  .slider img {
+    margin-top: 100px;
+    margin-left: 50px;
+    padding-right: 80px;
+    height: 300px;
+    
+   
   }
-  .cursos {
-    /* display: flex !important; */
-    display: -webkit-box;
-    display: -ms-flexbox;
+  
+  .slider ul{
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
+    flex-direction: row;
+    justify-content: center;
   
-  .imagen {
-    text-align: center;
-    width: 100%;
-    border-top-right-radius: 35px;
-    border-top-left-radius: 35px;
-  }
-  
-  .titulo {
-    margin-left: 2%;
-    font-weight: bold;
-  }
-  
-  .card-text {
-    margin-left: 3%;
-  }
-  
-  .card-body {
-    padding-top: 0%;
-    font-weight: bold;
   }
