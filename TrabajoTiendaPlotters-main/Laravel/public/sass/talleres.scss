@@ -1,13 +1,13 @@
-$colorFondoCarta:#43B582;/*#43B582*/
-$colorBorde:#161616;
+$colorFondoCarta: #70add5;
+$colorBorde: #126a34;
 div.card {
   margin-left: 6%;
   margin-bottom: 2%;
   font-family: 'Poppins';
-  margin-top: 2%;
-  border-radius: 45px;
+  margin-top: 12%;
+  border-radius: 1px;
   background-color: $colorFondoCarta;
-  border: solid 3px $colorBorde;
+  border: solid 7px $colorBorde;
 }
 
 .talleres {
