@@ -4,15 +4,14 @@
 }
 
 div.card {
-  margin-left: 8%;
-  margin-bottom: 2%;
-  font-family: 'Poppins';
-  margin-top: 2%;
-  border-radius: 45px;
-  background-color: #43B582;
-  border: solid 3px #161616;
+    margin-left: 8%;
+    margin-bottom: 2%;
+    font-family: 'Poppins';
+    margin-top: 20%;
+    border-radius: 1px;
+    background-color: #70add5;
+    border: solid 7px #126a34;
 }
-
 .cursos {
   /* display: flex !important; */
   display: -webkit-box;
