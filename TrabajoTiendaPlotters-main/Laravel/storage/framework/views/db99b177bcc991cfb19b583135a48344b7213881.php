@@ -14,7 +14,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
             }).go();
  </script>
  <?php if(Auth::check()): ?>
-<a class="nav-link active" style="font-family: 'Akaya Telivigala', cursive;"><?php echo trans('jokes.Bienvenida'); ?> <b style="color: aquamarine"><?php echo e(auth()->user()->name); ?></b></a>
+<a class="nav-link active" style="font-family: 'Akaya Telivigala', cursive;">Bienvenida <b style="color: aquamarine"><?php echo e(auth()->user()->name); ?></b></a>
        <?php endif; ?>
   
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

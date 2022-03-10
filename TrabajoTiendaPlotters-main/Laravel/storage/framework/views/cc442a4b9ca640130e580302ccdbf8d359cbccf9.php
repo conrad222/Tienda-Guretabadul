@@ -1,7 +1,7 @@
 <style>
 
 .nav-link:hover{
-        background-color: #B81F57;
+        background-color: #311bbf;
         color: white!important;
         border-radius: 100%;
     }
@@ -21,6 +21,61 @@
 }
 
 .nav-link.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    color: grey;
+  }
+  
+  
+  20% {
+    color: #d35400;
+  }
+  40% {
+    color: #924444;
+  }
+  60% {
+    color: crimson;
+  }
+ 
+  
+  80% {
+    color: #f1c40f;
+  }
+  100% {
+    color: chartreuse;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+.container-f{
+padding-right: 0.75rem;
+padding-left: 0.75rem;
+margin-right: auto;
+margin-left: auto;
+}
+
+.colores {
+    transition: background-color 1s;
+    border-radius:100%;
+    padding: 0.5rem 1rem;
+    color: #64a19d;
+    text-decoration: none;
+    -webkit-animation: colorchange 20s infinite alternate;
+}
+
+.colores.disabled {
   color: #6c757d;
   pointer-events: none;
   cursor: default;
@@ -63,10 +118,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav-link {
+  .colores{
     -webkit-transition: none;
     transition: none;
   }
 }
+
 
 </style><?php /**PATH C:\Users\Iker\Desktop\UniServerZ\www\Tienda-Guretabadul\TrabajoTiendaPlotters-main\Laravel\resources\views/layout/estilos.blade.php ENDPATH**/ ?>

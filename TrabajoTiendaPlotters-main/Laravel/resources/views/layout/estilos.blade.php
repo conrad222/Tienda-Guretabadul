@@ -1,7 +1,7 @@
 <style>
 
 .nav-link:hover{
-        background-color: #B81F57;
+        background-color: #311bbf;
         color: white!important;
         border-radius: 100%;
     }
@@ -30,36 +30,26 @@
   0% {
     color: grey;
   }
-  10% {
-    color: #8e44ad;
-  }
+  
+  
   20% {
-    color: #1abc9c;
-  }
-  30% {
     color: #d35400;
   }
   40% {
     color: #924444;
   }
-  50% {
+  60% {
     color: crimson;
   }
-  60% {
-    color: blue;
-  }
-  70% {
-    color: #2980b9;
-  }
+ 
+  
   80% {
     color: #f1c40f;
   }
-  90% {
+  100% {
     color: chartreuse;
   }
-  100% {
-    color: pink;
-  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
