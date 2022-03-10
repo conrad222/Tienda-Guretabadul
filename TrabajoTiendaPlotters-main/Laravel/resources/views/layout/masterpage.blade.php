@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gure Tabadul-@yield('Titulo')</title>
+    <link rel="icon" href="img/LogoTabadul64PX.jpg">
     <link rel="stylesheet" href="{{URL::asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{URL::asset('scss/footer.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
