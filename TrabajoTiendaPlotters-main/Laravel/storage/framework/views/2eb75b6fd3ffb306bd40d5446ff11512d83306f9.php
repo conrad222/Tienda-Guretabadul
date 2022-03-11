@@ -7,10 +7,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><?php echo e(__('Registro')); ?></div>
+                <div class="card-header" style="font-weight: bold;font-family: cursive;" ><?php echo e(__('Registro')); ?></div>
 
                 <div class="card-body">
-                    <form method="POST" action="<?php echo e(route('register')); ?>">
+                    <form method="POST" action="<?php echo e(route('register')); ?>" style="font-weight: bold;font-family: cursive;">
                         <?php echo csrf_field(); ?>
 
                         <div class="form-group row">
@@ -24,14 +24,14 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="name" value="<?php echo e(old('name')); ?>" required autocomplete="name" autofocus placeholder=" Nombre">
+unset($__errorArgs, $__bag); ?>" name="name" value="<?php echo e(old('name')); ?>" required autocomplete="name" autofocus placeholder="Nombre" style="font-weight: bold;font-family: cursive;">
 
                                 <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="font-weight: bold;font-family: cursive;">
                                         <strong><?php echo e($message); ?></strong>
                                     </span>
                                 <?php unset($message);
@@ -52,14 +52,14 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email" placeholder=" Correo">
+unset($__errorArgs, $__bag); ?>" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email" placeholder="Correo" style="font-weight: bold;font-family: cursive;">
 
                                 <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="font-weight: bold;font-family: cursive;">
                                         <strong><?php echo e($message); ?></strong>
                                     </span>
                                 <?php unset($message);
@@ -80,14 +80,14 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="password"  placeholder=" Contraseña">
+unset($__errorArgs, $__bag); ?>" name="password"  placeholder="Contraseña" style="font-weight: bold;font-family: cursive;">
 
                                 <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="font-weight: bold;font-family: cursive;">
                                         <strong><?php echo e($message); ?></strong>
                                     </span>
                                 <?php unset($message);
@@ -101,7 +101,7 @@ unset($__errorArgs, $__bag); ?>
                             
 
                             <div class="col-md-6">
-                                <input id="contrasenya" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder=" Confirmar contraseña">
+                                <input id="contrasenya" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar contraseña" style="font-weight: bold;font-family: cursive;">
                             </div>
                         </div>
 

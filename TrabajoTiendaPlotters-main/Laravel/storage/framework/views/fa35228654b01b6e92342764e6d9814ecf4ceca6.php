@@ -8,8 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><?php echo e(__('Login')); ?></div>
-
+                <div class="card-header" style="font-weight: bold; font-family: cursive;"><?php echo e(__('Login')); ?></div>
                 <div class="card-body">
                     <form method="POST" action="<?php echo e(route('login')); ?>">
                         <?php echo csrf_field(); ?>
@@ -25,7 +24,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email" autofocus placeholder=" Correo">
+unset($__errorArgs, $__bag); ?>" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email" autofocus placeholder="EMAIL" style="font-weight: bold; font-family: cursive;">
 
                                 <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -53,7 +52,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="password" required autocomplete="current-password" placeholder=" Contraseña">
+unset($__errorArgs, $__bag); ?>" name="password" required autocomplete="current-password" placeholder="PASSWORD" style="font-weight: bold; font-family: cursive;>
 
                                 <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -75,7 +74,7 @@ unset($__errorArgs, $__bag); ?>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
 
-                                    <label class="form-check-label" for="remember">
+                                    <label class="form-check-label" for="remember" style="font-weight: bold; font-family: cursive;">
                                         <?php echo e(__('Recuerdame')); ?>
 
                                     </label>
@@ -85,13 +84,13 @@ unset($__errorArgs, $__bag); ?>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" style="font-weight: bold; font-family: cursive;">
                                     <?php echo e(__('Login')); ?>
 
                                 </button>
 
                                 <?php if(Route::has('password.request')): ?>
-                                    <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
+                                    <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>" style="font-weight: bold; font-family: cursive;">
                                         <?php echo e(__('Has olvidado mi contraseña?')); ?>
 
                                     </a>
