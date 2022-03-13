@@ -8,7 +8,7 @@
 <div class="slider" >
     <ul>
         <li style="list-style:none"><img src="{{url('img/imagen2.png')}}"></li>
-        <li style="list-style:none"><img src="{{url('img/imagen1.png')}}"></li>
+        <li style="list-style:none"><img src="{{url('img/imagen1.png')}}" style="padding-right: 180px;"></li>
     </ul>
 
 </div>
