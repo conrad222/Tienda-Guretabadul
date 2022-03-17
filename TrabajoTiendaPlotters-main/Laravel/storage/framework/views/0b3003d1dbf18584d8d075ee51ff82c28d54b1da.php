@@ -12,13 +12,17 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
             new TypeIt("#tabadul", {
                 strings: "Gure Tabadul",
             }).go();
-
-        </script>
+ </script>
+ <?php if(Auth::check()): ?>
+<a class="nav-link active" style="font-family: 'Akaya Telivigala', cursive;">Bienvenida <b style="color: aquamarine"><?php echo e(auth()->user()->name); ?></b></a>
+       <?php endif; ?>
+  
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content:right;">
             <ul style="margin-left:35%;" class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('cursos.index')); ?>">Cursos</a>
@@ -38,6 +42,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('register')); ?>">Registrarse</a>
                 </li>
                 <?php else: ?>
+            
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href=""
                         onclick="event.preventDefault(); document.getElementById('logout').submit();">Cerrar sesion</a>
@@ -49,8 +54,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('perfil.index')); ?>">Ver perfil</a>
                 </li>
-                <a class="nav-link active" style="font-family:cursive; color:#000">Bienvenida <b
-                        style="color: aquamarine"><?php echo e(auth()->user()->name); ?></b></a>
+         
 
                 <?php endif; ?>
 
