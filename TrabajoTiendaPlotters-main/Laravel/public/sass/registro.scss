@@ -7,19 +7,25 @@ $colorBorde:#161616;
     border: none !important;
   }
   div.card-header {
-    background-color: $colorFondoTituloRegistro;
-    color: $colorLetrasRegistro;
-    font-family: 'Poppins';
+    background-color: #B91B55;
+    color: white;
     font-size: 2em;
-    padding-left: 26.5%;
-    border-top-right-radius: 16px !important;
-    border-top-left-radius: 16px !important;
+    padding-left: 40%;
+    border-top: 15px ridge #b91b55;
+    border-right: 15px groove #b91b55;
+    border-left: 15px ridge #b91b55;
+    border-bottom: 5px solid #650E2E;
+    padding-left: 180px;
   }
   
   div.card-body {
-    background-color: $colorFondoCarta;
-    border-bottom-left-radius: 16px !important;
-    border-bottom-right-radius: 16px !important;
+    background: #43b582;
+    border-bottom: 15px groove #43B582;
+    border-right: 15px groove #43B582;
+    border-left: 15px ridge #43B582;
+    border-top: 2px solid #236145;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
   }
   
   input#name.form-control {
