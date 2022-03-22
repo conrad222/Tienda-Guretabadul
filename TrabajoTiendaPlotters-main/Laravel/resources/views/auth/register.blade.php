@@ -62,7 +62,7 @@
                                 <input id="contrasenya" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar contraseña" style="font-weight: bold;font-family: cursive;">
                             </div>
                         </div>
-
+                        <input name="role_id" id="role_id" class="input-group form-group mt-3" type="hidden" value="2">
 						<div class="form-group row">
                             
 
