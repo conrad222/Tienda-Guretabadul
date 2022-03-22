@@ -10,7 +10,7 @@
 
 {{-- Mensajes flash de la sesión --}}
 @if (session('mensaje'))
-      <div class="alert alert-{{session('tipoMensaje')}}" role="alert">
+      <div class="alert alert-{{session('tipoMensaje')}}" role="alert" style="margin-top: 4%;">
         {{session('mensaje')}}
       </div>
 @endif

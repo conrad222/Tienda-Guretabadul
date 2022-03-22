@@ -11,7 +11,7 @@
 
 
 <?php if(session('mensaje')): ?>
-      <div class="alert alert-<?php echo e(session('tipoMensaje')); ?>" role="alert">
+      <div class="alert alert-<?php echo e(session('tipoMensaje')); ?>" role="alert" style="margin-top: 4%;">
         <?php echo e(session('mensaje')); ?>
 
       </div>
