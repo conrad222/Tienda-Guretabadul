@@ -22,11 +22,14 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
             <span class="navbar-toggler-icon"></span>
         </button>
         
+     
+        <img src="{{url('img/logos2.png')}}" widht="50px;" height="50px;">
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content:right;">
             <ul style="margin-left:35%;" class="navbar-nav mr-auto">
                
 
                 @if(!Auth::check())
+               
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('cursos.index')}}">Cursos</a>
                 </li>
