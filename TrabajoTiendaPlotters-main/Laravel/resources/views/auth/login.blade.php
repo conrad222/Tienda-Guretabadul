@@ -31,7 +31,7 @@
                            
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="PASSWORD" style="font-weight: bold; font-family: cursive;>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="PASSWORD" style="font-weight: bold; font-family: cursive;">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

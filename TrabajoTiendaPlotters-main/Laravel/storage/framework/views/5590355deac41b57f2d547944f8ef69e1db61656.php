@@ -15,7 +15,7 @@
 
         <div class="row gutters-sm">
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card2">
 
               <div class="card-bodyL">
                 <p id="perfilP"><a onclick="editarPerfil()" id="perfil">Editar perfil</a></p>
@@ -129,7 +129,7 @@
                         </form>
                     </div>
 
-                
+
                 <div class="conocimientos">
                   <div> <?php $__currentLoopData = $usuario->skills; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $skill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <ul class="lista">

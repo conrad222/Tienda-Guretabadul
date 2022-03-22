@@ -13,9 +13,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                 strings: "Gure Tabadul",
             }).go();
  </script>
- <?php if(Auth::check()): ?>
-<a class="nav-link active" style="font-family: 'Akaya Telivigala', cursive;">Bienvenida <b style="color: aquamarine"><?php echo e(auth()->user()->name); ?></b></a>
-       <?php endif; ?>
+ 
   
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +39,15 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('register')); ?>">Registrarse</a>
                 </li>
-                <?php else: ?>
+                <?php else: ?> 
+
+<a class="nav-link active" style="font-family: 'Akaya Telivigala', cursive;">Bienvenida <b style="color: aquamarine"><?php echo e(auth()->user()->name); ?></b></a>
+<?php if(Auth::check()->role_id=="1"): ?>
+
+                <li class="nav-item">
+            <a class="nav-link active" id="admin" onMouseOver="this.style.cssText='color: #cc0000'" onMouseOut="this.style.cssText='color: #fff'"  aria-current="page" href="<?php echo e(route('voyager.dashboard')); ?>"><?php echo trans('jokes.Administradora'); ?></a></a>
+            </li>
+            <?php endif; ?>
             
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href=""
