@@ -35,7 +35,7 @@
                         style="margin-right:50px;"></i></a>
                 <a href="https://www.instagram.com/guretabadul/" style="text-decoration:none;">facebook<i
                         class="fab fa-fw fa-facebook fa-2x" id="facebook" style="margin-right:50px;"></i></a>
-                <a href="https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox?compose=CllgCJNvvRLptFvmPpGLgccKtXLKBXDgdfbJrFsXmgJwkfmKtNHJWtRXKgDHctxxqjvGWprBjFL"
                     style="text-decoration:none;">kaixo@guretabadul.eu<i class="fa-solid fa-at fa-2x" id="gmail"
                         style="margin-right:50px;"></i></a>
                 <a href="https://www.google.es/maps/place/Calle+del+Dos+de+Mayo,+48003+Bilbao,+Vizcaya/@43.2573926,-2.9308172,17z/data=!3m1!4b1!4m5!3m4!1s0xd4e4fd23e2b219d:0x69431385f0a72f5c!8m2!3d43.2573887!4d-2.9286285"
