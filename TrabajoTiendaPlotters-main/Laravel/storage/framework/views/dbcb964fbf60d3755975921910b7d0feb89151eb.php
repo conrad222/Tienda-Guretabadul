@@ -1,4 +1,20 @@
 <style>
+img[alt="logo"]{
+  animation: rotation 3s infinite linear;
+}
+
+@keyframes  rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+img[alt="logo"]:hover{
+  transform: rotate(100deg);
+}
 
 .nav-link:hover{
         background-color: #311bbf;

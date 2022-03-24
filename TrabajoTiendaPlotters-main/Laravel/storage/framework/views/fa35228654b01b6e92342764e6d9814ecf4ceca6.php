@@ -52,7 +52,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="password" required autocomplete="current-password" placeholder="PASSWORD" style="font-weight: bold; font-family: cursive;>
+unset($__errorArgs, $__bag); ?>" name="password" required autocomplete="current-password" placeholder="PASSWORD" style="font-weight: bold; font-family: cursive;">
 
                                 <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

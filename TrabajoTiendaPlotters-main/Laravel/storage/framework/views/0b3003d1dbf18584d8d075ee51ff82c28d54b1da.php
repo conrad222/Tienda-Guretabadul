@@ -23,7 +23,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
         </button>
         
      
-        <img src="<?php echo e(url('img/logos2.png')); ?>" widht="50px;" height="50px;">
+        <a  href="<?php echo e(route('home')); ?>"><img src="<?php echo e(url('img/logos2.png')); ?>"  alt="logo" srcset="" widht="50px;" height="50px;"></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content:right;">
             <ul style="margin-left:35%;" class="navbar-nav mr-auto">
                
