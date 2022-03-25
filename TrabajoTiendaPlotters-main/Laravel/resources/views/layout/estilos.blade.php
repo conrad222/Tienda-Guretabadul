@@ -1,6 +1,6 @@
 <style>
 img[alt="logo"]{
-  animation: rotation 3s infinite linear;
+  animation: rotation 2s infinite linear;
 }
 
 @keyframes rotation {
