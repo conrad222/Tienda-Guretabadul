@@ -13,6 +13,15 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                 strings: "Gure Tabadul",
             }).go();
  </script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+    $('#logito').click(function(){
+    $('html, body').animate({scrollTop : 0},1);
+    return false;
+    });
+    });
+</script>
  <?php if(Auth::check()): ?>
  <a class="nav-link active" style="font-family: 'Akaya Telivigala', cursive;">Bienvenida <b style="color: aquamarine"><?php echo e(auth()->user()->name); ?></b></a>
  <?php endif; ?>
@@ -23,9 +32,10 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
         </button>
         
      
-        <a  href="<?php echo e(route('home')); ?>"><img src="<?php echo e(url('img/logos2.png')); ?>"  alt="logo" srcset="" widht="50px;" height="50px;"></a>
+        <a  href=""><img src="<?php echo e(url('img/logos2.png')); ?>"  alt="logo" id="logito" widht="50px;" height="50px;"></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content:right;">
             <ul style="margin-left:35%;" class="navbar-nav mr-auto">
+            
                
 
                 <?php if(!Auth::check()): ?>
