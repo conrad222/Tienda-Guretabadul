@@ -3,7 +3,11 @@
 @section('contenido')
 @section('estilos')
 <link rel="stylesheet" href="{{URL::asset('css/curso.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 @endsection
+<div class="hide" id="contenido">
+
 <div class="cursos">
 @foreach ($cursos as $curso)
 
@@ -27,5 +31,25 @@
 @endforeach
 </div>
 
+</div>
 
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+
+          setTimeout(carga, 1000);
+
+           
+
+          function carga(){
+
+              document.getElementById('contenido').className = 'center animated fadeInDown';
+          }
+          
+
+        })
+
+    </script>
 @endsection
