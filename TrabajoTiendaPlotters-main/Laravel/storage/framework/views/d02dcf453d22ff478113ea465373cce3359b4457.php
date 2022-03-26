@@ -3,8 +3,13 @@
 <?php $__env->startSection('contenido'); ?>
 <?php $__env->startSection('estilos'); ?>
 <link rel="stylesheet" href="<?php echo e(URL::asset('css/talleres.css')); ?>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <?php $__env->stopSection(); ?>
-<div class="talleres">
+    
+    <div class="hide" id="contenido">
+
+    <div class="talleres">
 <?php $__currentLoopData = $talleres; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $taller): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="card" style="width: 18rem;">
@@ -38,6 +43,26 @@
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
+
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+
+            setTimeout(carga, 1000);
+
+           
+
+            function carga(){
+
+                document.getElementById('contenido').className = 'center animated fadeInDown';
+            }
+          
+
+        })
+
+    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layout.masterpage', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\UniServerZ\www\Tienda-Guretabadul\TrabajoTiendaPlotters-main\Laravel\resources\views/secciones/Talleres.blade.php ENDPATH**/ ?>
