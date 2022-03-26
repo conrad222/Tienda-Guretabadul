@@ -32,7 +32,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
         </button>
         
      
-        <a  href=""><img src="{{url('img/logito2.png')}}"  alt="logo" id="logito" widht="50px;" height="50px;"></a>
+        <a  href=""><img src="{{url('img/logitot.png')}}"  alt="logo" id="logito" widht="50px;" height="50px;"></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content:right;">
             <ul style="margin-left:35%;" class="navbar-nav mr-auto">
             
