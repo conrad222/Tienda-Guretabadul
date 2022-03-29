@@ -6,6 +6,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 @endsection
+
+<div class="center section" id="circulo">
+        <img src="{{url('img/logito2.png')}}"widht="200px;" height="200px;" style="margin-top:40px;">
+        <style>
+          img[src="{{url('img/logito2.png')}}"]{
+            animation: rotation 0.7s infinite linear;
+          }
+
+          @keyframes rotation {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        </style>
+    </div>
+    
 <div class="hide" id="contenido">
 
 <div class="cursos">
@@ -44,6 +63,8 @@
            
 
           function carga(){
+
+              document.getElementById('circulo').className = 'hide';
 
               document.getElementById('contenido').className = 'center animated fadeInDown';
           }

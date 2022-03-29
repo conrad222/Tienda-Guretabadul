@@ -7,6 +7,24 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <?php $__env->stopSection(); ?>
     
+
+<div class="center section" id="circulo">
+        <img src="<?php echo e(url('img/logito2.png')); ?>"widht="200px;" height="200px;" style="margin-top:40px;">
+        <style>
+          img[src="<?php echo e(url('img/logito2.png')); ?>"]{
+            animation: rotation 0.7s infinite linear;
+          }
+
+          @keyframes  rotation {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        </style>
+    </div>
     <div class="hide" id="contenido">
 
     <div class="talleres">
@@ -50,11 +68,12 @@
     <script>
         window.addEventListener('load', () => {
 
-            setTimeout(carga, 1000);
+            setTimeout(carga, 2000);
 
-           
 
             function carga(){
+
+              document.getElementById('circulo').className = 'hide';
 
                 document.getElementById('contenido').className = 'center animated fadeInDown';
             }
