@@ -13,10 +13,13 @@
 </head>
 <body>
     <div class="cajaPrincipal">
-    <div class="titulo"><h3>Listado de Match's</h3>
-        
+    <div class="titulo" style="text-align:center;"><h3>Listado de Match's</h3>
     </div>
-    <div class="flexbox-container">
+    <div class="crear" style="text-align:center;">
+        <a class="link" href="{{route('matches.create')}}"><button class="button"><i class="fa-solid fa-circle-plus">&nbsp;&nbsp;</i>Match</button></a>
+    </div>
+
+    <div class="flexbox-container" style=" margin-left:50px; margin-top: 50px; display: grid; grid-template-columns: repeat(6, 1fr); grid-gap: 70px; grid-auto-rows: 100px;">
         @foreach ($matches as $match)
         <div class="cajaMatch">
         <div><i class="fa-solid fa-user"></i>&nbsp;&nbsp;{{$match->nombre}}</div>
@@ -33,9 +36,7 @@
         @endforeach
     </div>
     
-    <div class="crear">
-        <a class="link" href="{{route('matches.create')}}"><button class="button"><i class="fa-solid fa-circle-plus">&nbsp;&nbsp;</i>Match</button></a>
-    </div>
+    
 </div>
 </body>
 </html>
