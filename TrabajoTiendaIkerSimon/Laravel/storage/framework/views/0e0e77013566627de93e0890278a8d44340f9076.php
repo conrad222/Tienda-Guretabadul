@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Listado de Match's</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="<?php echo e(URL::asset('css/matches.css')); ?>">
 </head>
 <body>
@@ -19,14 +20,18 @@
         <a class="link" href="<?php echo e(route('matches.create')); ?>"><button class="button"><i class="fa-solid fa-circle-plus">&nbsp;&nbsp;</i>Match</button></a>
     </div>
 
-    <div class="flexbox-container" style=" margin-left:50px; margin-top: 50px; display: grid; grid-template-columns: repeat(6, 1fr); grid-gap: 70px; grid-auto-rows: 100px;">
+
+    <input placeholder="Buscar..." id="box" type="text"  style="margin-left:60px;" />
+<div style="clear:both;"></div>
+
+    <div class="flexbox-container" id="list" style=" margin-left:50px; margin-top: 50px; display: grid; grid-template-columns: repeat(6, 1fr); grid-gap: 70px; text-align:center;">
         <?php $__currentLoopData = $matches; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $match): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="cajaMatch">
-        <div><i class="fa-solid fa-user"></i>&nbsp;&nbsp;<?php echo e($match->nombre); ?></div>
-        <div><i class="fa-solid fa-map-location-dot"></i>&nbsp;&nbsp;<?php echo e($match->direccion); ?></div>
-        <div><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp;<?php echo e($match->Fecha_encuentro); ?></div>
-        <div><i class="fa-solid fa-1"></i>&nbsp;&nbsp;<?php echo e($match->usuario1->name); ?></div>
-        <div><i class="fa-solid fa-2"></i>&nbsp;&nbsp;<?php echo e($match->usuario2->name); ?></div>
+        <div class="cajaMatch connect-cat" catname="apricots" id="cajas" style="border: 3px solid #000000; border-radius: 40px; padding:50px;">
+        <div class="tipo"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;<?php echo e($match->nombre); ?></div>
+        <div class="tipo"><i class="fa-solid fa-map-location-dot"></i>&nbsp;&nbsp;<?php echo e($match->direccion); ?></div>
+        <div class="tipo"><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp;<?php echo e($match->Fecha_encuentro); ?></div>
+        <div class="tipo"><i class=""></i>&nbsp;&nbsp;<?php echo e($match->usuario1->name); ?></div>
+        <div class="tipo"><i class=""></i>&nbsp;&nbsp;<?php echo e($match->usuario2->name); ?></div>
             <form action="<?php echo e(route('matches.destroy',$match)); ?>" method="POST" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
                 <?php echo method_field('DELETE'); ?>
@@ -39,6 +44,15 @@
     
 </div>
 </body>
+<script>
+$("#box").on('keyup', function(){
+  var matcher = new RegExp($(this).val(), 'gi');
+  $('.connect-cat').show().not(function(){
+      return matcher.test($(this).find('.tipo').text())
+  }).hide();
+});
+
+</script>
 </html>
 
 
