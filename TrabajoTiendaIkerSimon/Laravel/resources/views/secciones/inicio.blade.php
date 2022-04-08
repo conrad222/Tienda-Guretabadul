@@ -8,7 +8,7 @@
 <div class="slider" >
     <ul>
         <li style="list-style:none"><img src="{{url('img/imagen2.png')}}" style="margin-left: 40px;"></li>
-        <li style="list-style:none"><img src="{{url('img/imagen1.png')}}" style="padding-right: 180px;"></li>
+        <li style="list-style:none"><img src="{{url('img/imagen1.png')}}" style="padding-right: 55px;"></li>
     </ul>
 
 </div>
@@ -32,7 +32,7 @@
         <h3 class="titulo" style="margin-bottom: 30px; margin-top: 20px; padding-left: 154px;">¿Quiénes Somos?</h3>
         <h4 class="subtitulo" style="margin-bottom: 100px; padding-left: 154px;">APRENDE Y COMPARTE</h4>
         <div class="flexbox-containerQ">
-            <div class="texto" style="padding-left: 154px;">
+            <div class="texto" style="padding-left: 135px;">
             Somos un proyecto de ayuda a las mujeres que quieran relacionarse con otras personas para saber más acerca de sus culturas, religiones, experiencias personales y entender en la situación en la que están para apoyarlas.
             Tenemos profesionales cualificados que pueden enseñar a los clientes en los talleres y cursillos que se darán en nuestros puntos de encuentro.</div>
             
@@ -41,7 +41,7 @@
 </div>
 </div>
 <h3 class="titulo" style="margin-bottom:30px;">Colaboradores</h3>
-<div class="sponsors">
+<div class="sponsors" style="margin-bottom: 5%;">
     @foreach($sponsors as $sponsor)
     <div class="sponsor">
         <div class="cuadroImagen">
