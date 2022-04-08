@@ -15,8 +15,8 @@
 <h2></h2>
 <div class="dosdivs" style="margin-bottom:50px;">
     <div class="" >
-        <h3 class="titulo" style="margin-bottom: 30px; margin-top: 20px; margin-left: 50px;">¿Qué Hacemos?</h3>
-        <h4 class="subtitulo" style="margin-bottom: 100px; padding-left=20px; margin-left: 45px;">INTERCAMBIOS CULTURALES</h4>
+        <h3 class="titulo" style="margin-bottom: 30px; margin-top: 20px; margin-left: -115px;">¿Qué Hacemos?</h3>
+        <h4 class="subtitulo" style="margin-bottom: 100px; padding-left=20px; margin-left: -115px;">INTERCAMBIOS CULTURALES</h4>
         <div class="flexbox-containerP">
         <div class="flexbox-container">
             <div class="servicio1"><label><img class="img_servicios" src="{{url('img/amor.png')}}"></label><h4 class="teeexto">Cultivar actitudes interculturales positivas.</h4></div>
