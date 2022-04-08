@@ -1,0 +1,20 @@
+*{
+    font-weight: bold;
+    font-family: cursive;
+  }
+  
+  .slider img {
+    margin-top: 100px;
+    margin-left: 50px;
+    padding-right: 80px;
+    height: 300px;
+    
+   
+  }
+  
+  .slider ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+  }
