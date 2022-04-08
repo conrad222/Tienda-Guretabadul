@@ -17,6 +17,7 @@ return[
   
   /*Nav*/
   "inicio"=>"Hasi",
+  "administrador"=>"Administratzailea",
   "cursos"=>"Ikastaroak",
   "talleres"=>"Tailerrak",
   "tienda"=>"Denda",

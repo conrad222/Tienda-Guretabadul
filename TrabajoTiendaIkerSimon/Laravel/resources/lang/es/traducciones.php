@@ -17,6 +17,7 @@ return[
   
   /*Nav*/
   "inicio"=>"Inicio",
+  "administrador"=>"Administradora",
   "cursos"=>"Cursos",
   "talleres"=>"Talleres",
   "tienda"=>"Tienda",
