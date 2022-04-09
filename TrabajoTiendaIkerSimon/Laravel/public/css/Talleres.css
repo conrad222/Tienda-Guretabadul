@@ -1,4 +1,8 @@
-/*#43B582*/
+*{
+  font-weight: bold;
+  font-family: cursive;
+}
+
 div.card {
     margin-left: 6%;
     margin-bottom: 2%;

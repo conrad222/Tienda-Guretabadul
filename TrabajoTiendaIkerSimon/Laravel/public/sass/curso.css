@@ -25,6 +25,7 @@ div.card {
 .imagen {
   text-align: center;
   width: 100%;
+  height: 15rem;
   border-top-right-radius: 35px;
   border-top-left-radius: 35px;
 }
