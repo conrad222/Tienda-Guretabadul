@@ -16,6 +16,7 @@ use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\InteresController;
 use App\Http\Controllers\IdiomaController;
 use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\MessagesController;
 
 
 
@@ -50,6 +51,7 @@ Route::resource('skills', SkillsController::class);
 Route::resource('interes', InteresController::class);
 Route::resource('taller', TallerController::class);
 Route::resource('tienda', TiendaController::class);
+Route::resource('mensajes', MessagesController::class);
 Route::resource('perfil', PerfilController::class)->middleware('auth');;
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

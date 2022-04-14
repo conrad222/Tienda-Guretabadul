@@ -74,6 +74,9 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                     <a class="nav-link" aria-current="page" href="{{route('tienda.index')}}">Tienda</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{route('mensajes.index')}}">Mensajes</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href=""
                         onclick="event.preventDefault(); document.getElementById('logout').submit();">Cerrar sesion</a>
                     <!-- Solo usuarios identificados -->

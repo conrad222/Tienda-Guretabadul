@@ -40,7 +40,8 @@
     </div>
 </div>
 </div>
-<h3 class="titulo" style="margin-bottom:30px;">Colaboradores</h3>
+
+<h3 class="titulo" style="margin-bottom:30px;margin-top:20px;">Colaboradores</h3>
 <div class="sponsors" style="margin-bottom: 5%;">
     @foreach($sponsors as $sponsor)
     <div class="sponsor">

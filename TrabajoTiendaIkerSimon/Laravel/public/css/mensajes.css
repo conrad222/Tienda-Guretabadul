@@ -1,0 +1,42 @@
+*{
+    font-weight: bold;
+    font-family: cursive;
+  }
+  
+  div.card {
+      margin-left: 6%;
+      margin-bottom: 2%;
+      font-family: 'Poppins';
+      margin-top: 12%;
+      border-radius: 1px;
+      border: solid 7px #126a34;
+  
+  }
+
+  textarea.form-control {
+      
+    min-height: calc(1.5em + 10rem + 2px);
+}
+  .imagen {
+    text-align: center;
+    width: 100%;
+    height: 17rem;
+    border-top-right-radius: 35px;
+    border-top-left-radius: 35px;
+  }
+  
+  .titulo {
+    margin-left: 2%;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    margin-left: 3%;
+  }
+  
+  .card-body {
+    padding-top: 0%;
+    font-weight: bold;
+  }
+  /*# sourceMappingURL=curso.css.map */
+  

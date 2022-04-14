@@ -61,7 +61,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
 <?php if(Auth::user()->role_id=="1"): ?>
 
                 <li class="nav-item">
-            <a class="nav-link active" id="admin" onMouseOver="this.style.cssText='color: #cc0000'" onMouseOut="this.style.cssText='color: #fff'"  aria-current="page" href="<?php echo e(route('voyager.dashboard')); ?>"><?php echo trans('jokes.Administradora'); ?></a></a>
+            <a class="nav-link active" id="admin" onMouseOver="this.style.cssText='color: #cc0000'" onMouseOut="this.style.cssText='color: #fff'"  aria-current="page" href="<?php echo e(route('voyager.dashboard')); ?>">Administradora</a></a>
             </li>
             <?php endif; ?>
             <li class="nav-item">
@@ -72,6 +72,9 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('tienda.index')); ?>">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="<?php echo e(route('mensajes.index')); ?>">Mensajes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href=""
