@@ -26,7 +26,7 @@
     </div>
 
     @if (Auth::check())
-
+    <div class="hide" id="contenido">
 <div class="col-md-6 offset-md-3" style="margin-bottom:20px;">
 <div class="card">
 <div class="card-header" style="text-align:center;">
@@ -48,8 +48,8 @@
 <div class="card-header" style="text-align:center;">
     Formulario de Contacto
 </div>
-<div class="card-body">
-<form method="POST"  action=" route('secciones.inicio') " enctype="multipart/form-data">
+<div class="card-body" style="text-align:left;">
+<form action="{{route('mensajes.store')}}"method="POST"   enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         Tú Correo
@@ -70,6 +70,18 @@
 </div>
 </div>
 </div>
+
+<div class="col-md-6 offset-md-3">
+<div class="card">
+<div class="card-body" style="text-align:center;">
+        <div class="cajaMatch connect-cat" id="cajas" style="border-radius: 40px; padding:50px;">
+        <div class="tipo"><i class="fa-solid fa-user">&nbsp;{{auth()->user()->email}}</i>&nbsp;</div>
+        <div class="tipo"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;</div>
+        <div class="tipo"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;</div>
+
+</div>
+</div>
+</div>
 @endif
 
 
@@ -86,7 +98,7 @@
 
               document.getElementById('circulo').className = 'hide';
 
-              document.getElementById('contenido').className = 'center animated fadeInDown';
+              document.getElementById('contenido').className = 'center animated fadeInUp';
           }
           
 
