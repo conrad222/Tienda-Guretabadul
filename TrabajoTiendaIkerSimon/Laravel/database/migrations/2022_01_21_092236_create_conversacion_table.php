@@ -15,8 +15,13 @@ class CreateConversacionTable extends Migration
     {
         Schema::create('conversacion', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha');
+            $table->time('hora');
+            $table->string("email_user1");
+            $table->foreign("email_user1")->references("email")->on("users");
+            $table->string("email_user2");
+            $table->foreign("email_user2")->references("email")->on("users");
             $table->text("ContenidoMensaje");
-            $table->date("FechaMensaje");
             $table->unsignedbigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users");
             $table->timestamps();

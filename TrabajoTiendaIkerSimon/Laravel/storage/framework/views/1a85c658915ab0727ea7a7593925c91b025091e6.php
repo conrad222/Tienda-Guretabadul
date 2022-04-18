@@ -49,19 +49,19 @@
     Formulario de Contacto
 </div>
 <div class="card-body" style="text-align:left;">
-<form action="<?php echo e(route('mensajes.store')); ?>"method="POST"   enctype="multipart/form-data">
+<form action="<?php echo e(route('mensajes.store')); ?>" method="POST"   enctype="multipart/form-data">
     <?php echo csrf_field(); ?>
     <div class="form-group">
         Tú Correo
-        <input type="text" name="emailguretabul" class="form-control" placeholder="<?php echo e(auth()->user()->email); ?>"/></br>
+        <input type="text" name="emailguretabul" class="form-control" placeholder="<?php echo e(auth()->user()->email); ?>" required/></br>
     </div>
     <div class="form-group">
         Correo Administradores
-        <input type="text" name="emailyou" class="form-control" ></input></br>
+        <input type="text" name="emailyou" class="form-control" required></input></br>
     </div>
     <div class="form-group">
         Mensaje
-        <textarea name="msg" rows="10" class="form-control"></textarea></br>
+        <textarea name="msg" rows="10" class="form-control" required></textarea></br>
     </div>
 
     <button type="submit" class="btn btn-primary">Enviar</button>
@@ -70,19 +70,32 @@
 </div>
 </div>
 </div>
+<?php endif; ?>
+
 
 <div class="col-md-6 offset-md-3">
 <div class="card">
-<div class="card-body" style="text-align:center;">
-        <div class="cajaMatch connect-cat" id="cajas" style="border-radius: 40px; padding:50px;">
-        <div class="tipo"><i class="fa-solid fa-user">&nbsp;<?php echo e(auth()->user()->email); ?></i>&nbsp;</div>
-        <div class="tipo"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;</div>
-        <div class="tipo"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;</div>
+<div class="card-header" style="text-align:center;">
+Mensajes
+</div>
+<?php $__currentLoopData = $conversacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $conv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<div class="card-body"style="text-align:center;">
+      
+        <div class="cajaMatch connect-cat" id="cajas" style="border-radius: 40px;">
+        <div class="tipo" style="text-align:left;">Fecha:&nbsp;<?php echo e($conv->fecha); ?></div>
+        <div class="tipo"  style="text-align:left;">Hora:&nbsp;<?php echo e($conv->hora); ?></div>
+        <div class="tipo"><i class="fa-solid fa-user">&nbsp;De:</i>&nbsp;<?php echo e($conv->email_user1); ?></div>
+        <div class="tipo"><i class="fa-solid fa-user">&nbsp;Para:</i>&nbsp;<?php echo e($conv->email_user2); ?></div>
+        <div class="tipo"><i class="fa-solid fa-message"></i>&nbsp;<?php echo e($conv->ContenidoMensaje); ?></div>
+        <hr style="background-color: grey;"></hr>
+      </div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
-<?php endif; ?>
+
+
 
 
 <!-- Compiled and minified JavaScript -->

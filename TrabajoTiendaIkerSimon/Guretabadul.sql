@@ -20,13 +20,18 @@ USE `guretabadul`;
 -- Volcando estructura para tabla guretabadul.conversacion
 CREATE TABLE IF NOT EXISTS `conversacion` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `ContenidoMensaje` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `FechaMensaje` date NOT NULL,
+  `email_user1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_user2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ContenidoMensaje` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  KEY `conversacion_email_user1_foreign` (`email_user1`),
+  KEY `conversacion_email_user2_foreign` (`email_user2`),
   KEY `conversacion_user_id_foreign` (`user_id`),
+  CONSTRAINT `conversacion_email_user1_foreign` FOREIGN KEY (`email_user1`) REFERENCES `users` (`email`),
+  CONSTRAINT `conversacion_email_user2_foreign` FOREIGN KEY (`email_user2`) REFERENCES `users` (`email`),
   CONSTRAINT `conversacion_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -48,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.cursos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.cursos: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
 INSERT INTO `cursos` (`id`, `nombre`, `Fecha_ini`, `Fecha_fin`, `precio`, `capacidad`, `descripcion`, `created_at`, `updated_at`) VALUES
 	(1, 'PRUEBA CURSO', '2022-01-31', '2022-02-18', 12.52, '5', 'fddfasdvssdsdfzdfddffdgdfddfs', '2022-02-02 12:06:00', '2022-02-08 18:35:44');
@@ -268,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `imagenes_cursos` (
   CONSTRAINT `imagenes_cursos_curso_id_foreign` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.imagenes_cursos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.imagenes_cursos: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `imagenes_cursos` DISABLE KEYS */;
 INSERT INTO `imagenes_cursos` (`id`, `ruta`, `curso_id`, `created_at`, `updated_at`) VALUES
 	(1, 'imagenes-cursos\\February2022\\kgbmIkbT9vRJvJTKCoFj.jpg', 1, '2022-02-02 12:09:49', '2022-02-02 12:09:49');
@@ -286,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `imagenes_talleres` (
   CONSTRAINT `imagenes_talleres_id_taller_foreign` FOREIGN KEY (`taller_id`) REFERENCES `talleres` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.imagenes_talleres: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.imagenes_talleres: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `imagenes_talleres` DISABLE KEYS */;
 INSERT INTO `imagenes_talleres` (`id`, `ruta`, `taller_id`, `created_at`, `updated_at`) VALUES
 	(1, 'imagenes-talleres\\February2022\\wOarjQWr5nlEvYCFzG5Q.jpg', 1, '2022-02-02 09:54:00', '2022-02-02 08:55:14');
@@ -301,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `intereses` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.intereses: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.intereses: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `intereses` DISABLE KEYS */;
 INSERT INTO `intereses` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(1, 'Poker', NULL, NULL),
@@ -325,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `intereses_usuarios` (
   CONSTRAINT `intereses_usuarios_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.intereses_usuarios: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.intereses_usuarios: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `intereses_usuarios` DISABLE KEYS */;
 INSERT INTO `intereses_usuarios` (`id`, `user_id`, `interes_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 3, NULL, NULL),
@@ -351,12 +356,15 @@ CREATE TABLE IF NOT EXISTS `matchs` (
   KEY `matchs_user2_id_foreign` (`user2_id`),
   CONSTRAINT `matchs_user1_id_foreign` FOREIGN KEY (`user1_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `matchs_user2_id_foreign` FOREIGN KEY (`user2_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.matchs: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.matchs: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `matchs` DISABLE KEYS */;
 INSERT INTO `matchs` (`id`, `nombre`, `realizado`, `direccion`, `Fecha_encuentro`, `user1_id`, `user2_id`, `created_at`, `updated_at`) VALUES
-	(4, 'Jorge Andre', NULL, '48991', '2022-02-24', 2, 1, '2022-02-09 17:45:47', '2022-02-09 17:45:47');
+	(7, 'AyB', NULL, 'Plaza San Lluis', '2022-04-22', 3, 4, '2022-04-02 16:10:32', '2022-04-02 16:10:32'),
+	(14, 'AD', NULL, 'SD', '2022-04-21', 1, 2, '2022-04-06 16:14:59', '2022-04-06 16:14:59'),
+	(15, 'asdf', NULL, 'asdf', '2022-04-20', 1, 4, '2022-04-06 16:15:31', '2022-04-06 16:15:31'),
+	(16, 'asdf', NULL, 'asdf', '2022-04-06', 2, 4, '2022-04-06 16:16:07', '2022-04-06 16:16:07');
 /*!40000 ALTER TABLE `matchs` ENABLE KEYS */;
 
 -- Volcando estructura para tabla guretabadul.menus
@@ -369,7 +377,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   UNIQUE KEY `menus_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.menus: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.menus: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '2022-01-27 11:44:27', '2022-01-27 11:44:27');
@@ -431,9 +439,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.migrations: ~37 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.migrations: ~38 rows (aproximadamente)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2013_01_25_072032_create_paises_table', 1),
@@ -460,7 +468,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(22, '2018_03_14_000000_add_details_to_data_types_table', 1),
 	(23, '2018_03_16_000000_make_settings_value_nullable', 1),
 	(24, '2019_08_19_000000_create_failed_jobs_table', 1),
-	(25, '2022_01_21_092236_create_conversacion_table', 1),
 	(26, '2022_01_21_094554_create_intereses_table', 1),
 	(27, '2022_01_21_094800_create_intereses_usuarios_table', 1),
 	(28, '2022_01_21_103731_create_talleres_table', 1),
@@ -473,7 +480,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(35, '2022_01_25_114750_create_cursos_table', 1),
 	(36, '2022_01_25_114908_create_cursos_usuarios_table', 1),
 	(37, '2022_01_27_113223_create_imagenes_curso_table', 2),
-	(38, '2022_03_09_075139_create_productos_table', 3);
+	(38, '2022_03_09_075139_create_productos_table', 3),
+	(40, '2022_01_21_092236_create_conversacion_table', 4);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Volcando estructura para tabla guretabadul.paises
@@ -937,10 +945,10 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 -- Volcando estructura para tabla guretabadul.productos
 CREATE TABLE IF NOT EXISTS `productos` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `precio` double NOT NULL,
-  `descripcion` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `imagen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.png',
+  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imagen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.png',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -1029,7 +1037,7 @@ CREATE TABLE IF NOT EXISTS `skills_usuario` (
   CONSTRAINT `skills_usuario_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.skills_usuario: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.skills_usuario: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `skills_usuario` DISABLE KEYS */;
 INSERT INTO `skills_usuario` (`id`, `user_id`, `skills_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 4, '2022-02-08 08:40:19', NULL);
@@ -1046,7 +1054,7 @@ CREATE TABLE IF NOT EXISTS `sponsor` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.sponsor: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.sponsor: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `sponsor` DISABLE KEYS */;
 INSERT INTO `sponsor` (`id`, `nombre`, `descripción`, `ruta_img_sponsor`, `created_at`, `updated_at`) VALUES
 	(1, 'Facebook', 'Este es un texto que sirve como intento de descripcion para comprobar que funciona este proyecto', 'sponsor\\February2022\\SXaPxzaNAACo0hNdsz12.png', '2022-02-08 07:58:04', '2022-02-08 07:58:04');
@@ -1139,7 +1147,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla guretabadul.users: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadul.users: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `Fecha_nac`, `telefono`, `direccion_facturacion`, `pais_id`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'jorge', 'jordioni1705@gmail.com', 'users\\January2022\\27WbwJT8aBdHHJwqmdTm.PNG', '2022-03-07 12:57:18', 'Z', '2022-01-23', 56565, NULL, 73, NULL, '{"locale":"es"}', '2022-01-27 11:47:17', '2022-02-08 19:53:45'),

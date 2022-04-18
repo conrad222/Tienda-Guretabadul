@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Mail\MessageCreated;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Message;
-use Illuminate\Support\Facades\Mail;
 
 class MessagesController extends Controller
 {
@@ -45,25 +43,80 @@ class MessagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
+    {
+        $datos=$request->all();
+
+        $rules= array (
+
+            'email_user1' =>'required',
+            'email_user2' =>'required',
+            'ContenidoMensaje' => 'required',
+       
+
+           );
+
+           $messages= array (
+            'email_user1.required' => 'Campo email1 es requerido',
+            'email_user2.required' => 'Campo email2 es requerido',
+            'ContenidoMensaje.required' => 'Campo ContenidoMensaje es requerido',
+           
+           );
+
+           $validador= Validator::make($datos,$rules,$messages);
+           if($validador->fails()){
+            $errors=$validador->messages();
+            $errors->add('mierror','Se ha cancelado la creación de la actividad.');
+            \Session::flash('tipoMensaje','danger');
+            \Session::flash('mensaje','Error, no se cumplen las validaciones. Compruebe todos los campos');
+            //Volver con los errores
+
+            return \Redirect::back()->withInput()->withErrors($validador);
+
+            
+        }else{
+                 //Generar actividad
+                $conversacion=new Message();
+                $conversacion->email_user1=$datos["email_user1"];
+                $conversacion->email_user2=$datos["email_user2"];
+                $conversacion->ContenidoMensaje=$datos["ContenidoMensaje"];
+              
+                
+        try{
+            //Almacenar en la BD
+            $conversacion->save();
+            //Almacenar el archivo en el servidor
+                //Volver al listado
+                //Mensaje de OK
+                \Session::flash('tipoMensaje','success');
+                \Session::flash('mensaje','Usuario creado correctamente');
+
+        }catch(\Exception $e){
+            //echo $e->getMessage();
+            //Mensaje de KO
+            \Session::flash('tipoMensaje','danger');
+            \Session::flash('mensaje','Error al crear el usuario');
+
+        }
+        return \Redirect::back();
+    }
+
+    }
+
+    public function user(Request $request)
     {
         $datos=$request->all();
 
         $rules= array (
             'name' => 'required',
             'email' =>'required',
-            'password' =>'required',
-            'role_id' =>'required',
-            'id_idioma' =>'required',
 
            );
 
            $messages= array (
             'name.required' => 'Campo nombre es requerido',
             'email.required' => 'Campo email es requerido',
-            'password.required' => 'Campo password es requerido',
-            'role_id.required' => 'Campo rol es requerido',
-            'id_idioma.required' => 'Campo idioma es requerido',
            );
 
            $validador= Validator::make($datos,$rules,$messages);
@@ -82,9 +135,6 @@ class MessagesController extends Controller
                 $mensajes=new User();
                 $mensajes->name=$datos["name"];
                 $mensajes->email=$datos["email"];
-                $mensajes->password=$datos["password"];
-                $mensajes->role_id=$datos["role_id"];
-                $mensajes->id_idioma=$datos["id_idioma"];
 
         try{
             //Almacenar en la BD
@@ -108,63 +158,7 @@ class MessagesController extends Controller
 
     }
 
-    public function submit(Request $request)
-    {
-        $datos=$request->all();
-
-        $rules= array (
- 
-            'ContenidoMensaje' => 'required',
-            'FechaMensaje' =>'required',
-            'user_id' =>'required',
-
-           );
-
-           $messages= array (
-            'ContenidoMensaje.required' => 'Campo nombre es requerido',
-            'FechaMensaje.required' => 'Campo email es requerido',
-            'user_id.required' => 'Campo password es requerido',
-           );
-
-           $validador= Validator::make($datos,$rules,$messages);
-           if($validador->fails()){
-            $errors=$validador->messages();
-            $errors->add('mierror','Se ha cancelado la creación de la actividad.');
-            \Session::flash('tipoMensaje','danger');
-            \Session::flash('mensaje','Error, no se cumplen las validaciones. Compruebe todos los campos');
-            //Volver con los errores
-
-            return \Redirect::back()->withInput()->withErrors($validador);
-
-            
-        }else{
-                 //Generar actividad
-                $conversacion=new Message();
-                $conversacion->ContenidoMensaje=$datos["ContenidoMensaje"];
-                $conversacion->FechaMensaje=$datos["FechaMensaje"];
-                $conversacion->user_id=$datos["user_id"];
-
-              
-        try{
-            //Almacenar en la BD
-            $conversacion->save();
-            //Almacenar el archivo en el servidor
-                //Volver al listado
-                //Mensaje de OK
-                \Session::flash('tipoMensaje','success');
-                \Session::flash('mensaje','Usuario creado correctamente');
-
-        }catch(\Exception $e){
-            //echo $e->getMessage();
-            //Mensaje de KO
-            \Session::flash('tipoMensaje','danger');
-            \Session::flash('mensaje','Error al crear el usuario');
-
-        }
-        return \Redirect::back();
-    }
-
-    }
+    
 
     /**
      * Display the specified resource.
