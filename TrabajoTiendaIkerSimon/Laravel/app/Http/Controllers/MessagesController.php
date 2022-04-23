@@ -50,6 +50,8 @@ class MessagesController extends Controller
 
         $rules= array (
 
+            'fecha' =>'required',
+            'hora' =>'required',
             'email_user1' =>'required',
             'email_user2' =>'required',
             'ContenidoMensaje' => 'required',
@@ -58,6 +60,8 @@ class MessagesController extends Controller
            );
 
            $messages= array (
+            'fecha.required' => 'Campo fecha es requerido',
+            'hora.required' => 'Campo hora es requerido',
             'email_user1.required' => 'Campo email1 es requerido',
             'email_user2.required' => 'Campo email2 es requerido',
             'ContenidoMensaje.required' => 'Campo ContenidoMensaje es requerido',
@@ -78,6 +82,8 @@ class MessagesController extends Controller
         }else{
                  //Generar actividad
                 $conversacion=new Message();
+                $conversacion->fecha=$datos["fecha"];
+                $conversacion->hora=$datos["hora"];
                 $conversacion->email_user1=$datos["email_user1"];
                 $conversacion->email_user2=$datos["email_user2"];
                 $conversacion->ContenidoMensaje=$datos["ContenidoMensaje"];
@@ -86,6 +92,7 @@ class MessagesController extends Controller
         try{
             //Almacenar en la BD
             $conversacion->save();
+            dd($conversacion);
             //Almacenar el archivo en el servidor
                 //Volver al listado
                 //Mensaje de OK
