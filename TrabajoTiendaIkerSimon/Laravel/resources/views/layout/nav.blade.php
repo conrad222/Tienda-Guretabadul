@@ -47,7 +47,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                     <a class="nav-link" aria-current="page" href="{{route('taller.index')}}">Taller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{route('tienda.index')}}">Tienda</a>
+                    <a class="nav-link" aria-current="page" href="http://localhost/Tienda-Guretabadul/TrabajoTiendaIkerSimon/Laravel/wordpress/wp-admin/index.php">Tienda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('login')}}">Inicio Sesión</a>

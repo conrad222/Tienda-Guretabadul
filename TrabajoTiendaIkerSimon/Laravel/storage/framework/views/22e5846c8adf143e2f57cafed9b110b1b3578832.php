@@ -47,7 +47,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('tienda.index')); ?>">Tienda</a>
+                    <a class="nav-link" aria-current="page" href="http://localhost/Tienda-Guretabadul/TrabajoTiendaIkerSimon/Laravel/wordpress/wp-admin/index.php">Tienda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('login')); ?>">Inicio Sesión</a>
@@ -72,6 +72,9 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('tienda.index')); ?>">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="<?php echo e(route('mensajes.index')); ?>">Mensajes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href=""
