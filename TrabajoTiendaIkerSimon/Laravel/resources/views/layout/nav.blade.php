@@ -25,7 +25,14 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
  @if (Auth::check())
  <a class="nav-link active" style="font-family: 'Akaya Telivigala', cursive;">Bienvenida <b style="color: aquamarine">{{auth()->user()->name}}</b></a>
  @endif
-  
+    <style>
+        .nav-link{
+            background-color: transparent !important;
+        }
+
+        
+
+    </style>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,7 +72,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
             </li>
             @endif
             <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{route('cursos.index')}}">Cursos</a>
+                    <a class="nav-link" aria-current="page" href="{{route('cursos.index')}}" >Cursos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('taller.index')}}">Taller</a>
