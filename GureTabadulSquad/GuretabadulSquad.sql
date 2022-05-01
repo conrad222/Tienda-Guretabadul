@@ -12,24 +12,24 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Volcando datos para la tabla guretabadul.conversacion: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.conversacion: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `conversacion` DISABLE KEYS */;
 /*!40000 ALTER TABLE `conversacion` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.cursos: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.cursos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
 INSERT INTO `cursos` (`id`, `nombre`, `Fecha_ini`, `Fecha_fin`, `precio`, `capacidad`, `descripcion`, `created_at`, `updated_at`) VALUES
 	(1, 'PRUEBA CURSO', '2022-01-31', '2022-02-18', 12.52, '5', 'fddfasdvssdsdfzdfddffdgdfddfs', '2022-02-02 12:06:00', '2022-02-08 18:35:44');
 /*!40000 ALTER TABLE `cursos` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.cursos_usuarios: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.cursos_usuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `cursos_usuarios` DISABLE KEYS */;
 INSERT INTO `cursos_usuarios` (`id`, `user_id`, `curso_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, '2022-02-07 08:35:38', '2022-02-07 08:35:38'),
 	(2, 2, 1, NULL, NULL);
 /*!40000 ALTER TABLE `cursos_usuarios` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.data_rows: ~98 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.data_rows: ~98 rows (aproximadamente)
 /*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
 	(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
@@ -132,7 +132,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 	(133, 1, 'user_belongstomany_interese_relationship', 'relationship', 'intereses', 0, 1, 1, 1, 1, 1, '{"model":"App\\\\Models\\\\Interes","table":"intereses","type":"belongsToMany","column":"id","key":"id","label":"nombre","pivot_table":"intereses_usuarios","pivot":"1","taggable":"0"}', 17);
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.data_types: ~14 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.data_types: ~14 rows (aproximadamente)
 /*!40000 ALTER TABLE `data_types` DISABLE KEYS */;
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
 	(1, 'users', 'users', 'Usuario', 'Usuarios', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}', '2022-01-27 11:44:24', '2022-02-08 19:37:09'),
@@ -151,23 +151,23 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 	(23, 'talleres_usuarios', 'talleres-usuarios', 'Talleres Usuario', 'Talleres Usuarios', NULL, 'App\\Models\\TalleresUsuario', NULL, NULL, NULL, 1, 0, '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}', '2022-02-08 18:40:13', '2022-02-08 18:41:45');
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.failed_jobs: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.failed_jobs: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
 /*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.imagenes_cursos: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.imagenes_cursos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `imagenes_cursos` DISABLE KEYS */;
 INSERT INTO `imagenes_cursos` (`id`, `ruta`, `curso_id`, `created_at`, `updated_at`) VALUES
 	(1, 'imagenes-cursos\\February2022\\kgbmIkbT9vRJvJTKCoFj.jpg', 1, '2022-02-02 12:09:49', '2022-02-02 12:09:49');
 /*!40000 ALTER TABLE `imagenes_cursos` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.imagenes_talleres: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.imagenes_talleres: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `imagenes_talleres` DISABLE KEYS */;
 INSERT INTO `imagenes_talleres` (`id`, `ruta`, `taller_id`, `created_at`, `updated_at`) VALUES
 	(1, 'imagenes-talleres\\February2022\\wOarjQWr5nlEvYCFzG5Q.jpg', 1, '2022-02-02 09:54:00', '2022-02-02 08:55:14');
 /*!40000 ALTER TABLE `imagenes_talleres` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.intereses: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.intereses: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `intereses` DISABLE KEYS */;
 INSERT INTO `intereses` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(1, 'Poker', NULL, NULL),
@@ -177,7 +177,7 @@ INSERT INTO `intereses` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(5, 'a', '2022-03-07 12:00:22', '2022-03-07 12:00:22');
 /*!40000 ALTER TABLE `intereses` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.intereses_usuarios: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.intereses_usuarios: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `intereses_usuarios` DISABLE KEYS */;
 INSERT INTO `intereses_usuarios` (`id`, `user_id`, `interes_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 3, NULL, NULL),
@@ -187,20 +187,20 @@ INSERT INTO `intereses_usuarios` (`id`, `user_id`, `interes_id`, `created_at`, `
 	(5, 3, 5, NULL, NULL);
 /*!40000 ALTER TABLE `intereses_usuarios` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.matchs: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.matchs: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `matchs` DISABLE KEYS */;
 INSERT INTO `matchs` (`id`, `nombre`, `realizado`, `direccion`, `Fecha_encuentro`, `user1_id`, `user2_id`, `created_at`, `updated_at`) VALUES
 	(4, 'Jorge Andre', NULL, '48991', '2022-02-24', 2, 1, '2022-02-09 17:45:47', '2022-02-09 17:45:47'),
 	(6, 'nnnn', NULL, 'pppp', '2022-04-08', 3, 4, '2022-04-11 08:56:12', '2022-04-11 08:56:12');
 /*!40000 ALTER TABLE `matchs` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.menus: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.menus: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '2022-01-27 11:44:27', '2022-01-27 11:44:27');
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.menu_items: ~24 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.menu_items: ~25 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 	(2, 1, 'Multimedia', '', '_self', 'voyager-images', NULL, NULL, 3, '2022-01-27 11:44:27', '2022-04-04 10:17:52', 'voyager.media.index', NULL),
@@ -229,7 +229,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 	(30, 1, 'Talleres Usuarios', '', '_self', NULL, NULL, 26, 3, '2022-02-08 18:40:13', '2022-02-08 19:18:24', 'voyager.talleres-usuarios.index', NULL);
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.migrations: ~38 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.migrations: ~38 rows (aproximadamente)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2013_01_25_072032_create_paises_table', 1),
@@ -272,7 +272,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(38, '2022_03_09_075139_create_productos_table', 3);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.paises: ~240 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.paises: ~240 rows (aproximadamente)
 /*!40000 ALTER TABLE `paises` DISABLE KEYS */;
 INSERT INTO `paises` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(1, 'Afganistán', NULL, NULL),
@@ -517,11 +517,11 @@ INSERT INTO `paises` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(240, 'Zimbabue', NULL, NULL);
 /*!40000 ALTER TABLE `paises` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.password_resets: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.password_resets: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.permissions: ~80 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.permissions: ~80 rows (aproximadamente)
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
 	(1, 'browse_admin', NULL, '2022-01-27 11:44:28', '2022-01-27 11:44:28'),
@@ -606,7 +606,7 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 	(105, 'delete_talleres_usuarios', 'talleres_usuarios', '2022-02-08 18:40:13', '2022-02-08 18:40:13');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.permission_role: ~80 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.permission_role: ~80 rows (aproximadamente)
 /*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 	(1, 1),
@@ -691,18 +691,18 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 	(105, 1);
 /*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.productos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.productos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.roles: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.roles: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', 'Administrador', '2022-01-27 11:44:28', '2022-01-27 11:44:28'),
 	(2, 'user', 'Usuario Normal', '2022-01-27 11:44:28', '2022-01-27 11:44:28');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.settings: ~10 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.settings: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
 	(1, 'site.title', 'Título del sitio', 'Título del sitio', '', 'text', 1, 'Site'),
@@ -717,7 +717,7 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 	(10, 'admin.google_analytics_client_id', 'ID de Cliente para Google Analytics (usado para el tablero de administrador)', NULL, '', 'text', 1, 'Admin');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.skills: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.skills: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `skills` DISABLE KEYS */;
 INSERT INTO `skills` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(1, 'Polka', NULL, NULL),
@@ -726,19 +726,19 @@ INSERT INTO `skills` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(4, 'Derrapar', NULL, NULL);
 /*!40000 ALTER TABLE `skills` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.skills_usuario: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.skills_usuario: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `skills_usuario` DISABLE KEYS */;
 INSERT INTO `skills_usuario` (`id`, `user_id`, `skills_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 4, '2022-02-08 08:40:19', NULL);
 /*!40000 ALTER TABLE `skills_usuario` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.sponsor: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.sponsor: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `sponsor` DISABLE KEYS */;
 INSERT INTO `sponsor` (`id`, `nombre`, `descripción`, `ruta_img_sponsor`, `created_at`, `updated_at`) VALUES
 	(1, 'Facebook', 'Este es un texto que sirve como intento de descripcion para comprobar que funciona este proyecto', 'sponsor\\February2022\\SXaPxzaNAACo0hNdsz12.png', '2022-02-08 07:58:04', '2022-02-08 07:58:04');
 /*!40000 ALTER TABLE `sponsor` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.talleres: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.talleres: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `talleres` DISABLE KEYS */;
 INSERT INTO `talleres` (`id`, `Título`, `Fecha_comienzo`, `Fecha_final`, `Descripción`, `Precio`, `Capacidad`, `created_at`, `updated_at`) VALUES
 	(1, 'Taller Prueba', '2022-02-18', '2022-03-10', 'Este es un taller ficticio', 14.56, 5, '2022-02-02 08:22:00', '2022-02-08 18:39:35'),
@@ -746,7 +746,7 @@ INSERT INTO `talleres` (`id`, `Título`, `Fecha_comienzo`, `Fecha_final`, `Descr
 	(3, 'Tercer Taller', '2022-02-10', '2022-03-05', 'fsfddghfgngngnnnxnb', 152, 21, '2022-02-03 12:45:00', '2022-02-08 18:50:43');
 /*!40000 ALTER TABLE `talleres` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.talleres_usuarios: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.talleres_usuarios: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `talleres_usuarios` DISABLE KEYS */;
 INSERT INTO `talleres_usuarios` (`id`, `taller_id`, `user_id`, `created_at`, `updated_at`) VALUES
 	(6, 1, 1, '2022-02-08 07:10:31', '2022-02-08 07:10:31'),
@@ -754,11 +754,11 @@ INSERT INTO `talleres_usuarios` (`id`, `taller_id`, `user_id`, `created_at`, `up
 	(8, 3, 1, NULL, NULL);
 /*!40000 ALTER TABLE `talleres_usuarios` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.translations: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.translations: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `translations` DISABLE KEYS */;
 /*!40000 ALTER TABLE `translations` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.users: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.users: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `Fecha_nac`, `telefono`, `direccion_facturacion`, `pais_id`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'jorge', 'jordioni1705@gmail.com', 'users\\January2022\\27WbwJT8aBdHHJwqmdTm.PNG', '2022-03-07 12:57:18', 'Z', '2022-01-23', 56565, NULL, 73, NULL, '{"locale":"es"}', '2022-01-27 11:47:17', '2022-02-08 19:53:45'),
@@ -769,25 +769,25 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified
 	(6, 2, 'Patricia', 'patricia.ddg@hotmail.com', 'users/default.png', NULL, '$2y$10$5ZH0MeAGSeZU51MqPpTp8.ntvUZfcLoOGbICATnHkK.FIHOa3FfHa', NULL, NULL, NULL, NULL, NULL, NULL, '2022-03-22 13:55:59', '2022-03-22 13:55:59');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.user_roles: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.user_roles: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_commentmeta: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_commentmeta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_commentmeta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `wp_commentmeta` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_comments: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_comments: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_comments` DISABLE KEYS */;
 INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
 	(1, 1, 'Un comentarista de WordPress', 'wapuu@wordpress.example', 'https://wordpress.org/', '', '2022-04-25 15:18:46', '2022-04-25 15:18:46', 'Hola, esto es un comentario.\nPara empezar a moderar, editar y borrar comentarios, por favor, visita la pantalla de comentarios en el escritorio.\nLos avatares de los comentaristas provienen de <a href="https://gravatar.com">Gravatar</a>.', 0, '1', '', 'comment', 0, 0);
 /*!40000 ALTER TABLE `wp_comments` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_links: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_links: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_links` DISABLE KEYS */;
 /*!40000 ALTER TABLE `wp_links` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_options: ~158 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_options: ~104 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_options` DISABLE KEYS */;
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 	(1, 'siteurl', 'http://localhost/Tienda-Guretabadul/TrabajoTiendaIkerSimon/Laravel/wordpress', 'yes'),
@@ -930,7 +930,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 	(256, '_site_transient_update_plugins', 'O:8:"stdClass":5:{s:12:"last_checked";i:1651169528;s:8:"response";a:1:{s:19:"akismet/akismet.php";O:8:"stdClass":12:{s:2:"id";s:21:"w.org/plugins/akismet";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"4.2.3";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.4.2.3.zip";s:5:"icons";a:2:{s:2:"2x";s:59:"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272";s:2:"1x";s:59:"https://ps.w.org/akismet/assets/icon-128x128.png?rev=969272";}s:7:"banners";a:1:{s:2:"1x";s:61:"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904";}s:11:"banners_rtl";a:0:{}s:8:"requires";s:3:"5.0";s:6:"tested";s:5:"5.9.3";s:12:"requires_php";b:0;}}s:12:"translations";a:1:{i:0;a:7:{s:4:"type";s:6:"plugin";s:4:"slug";s:11:"hello-dolly";s:8:"language";s:5:"es_ES";s:7:"version";s:5:"1.7.2";s:7:"updated";s:19:"2019-10-09 18:49:33";s:7:"package";s:78:"https://downloads.wordpress.org/translation/plugin/hello-dolly/1.7.2/es_ES.zip";s:10:"autoupdate";b:1;}}s:9:"no_update";a:1:{s:9:"hello.php";O:8:"stdClass":10:{s:2:"id";s:25:"w.org/plugins/hello-dolly";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:5:"1.7.2";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:60:"https://downloads.wordpress.org/plugin/hello-dolly.1.7.2.zip";s:5:"icons";a:2:{s:2:"2x";s:64:"https://ps.w.org/hello-dolly/assets/icon-256x256.jpg?rev=2052855";s:2:"1x";s:64:"https://ps.w.org/hello-dolly/assets/icon-128x128.jpg?rev=2052855";}s:7:"banners";a:2:{s:2:"2x";s:67:"https://ps.w.org/hello-dolly/assets/banner-1544x500.jpg?rev=2645582";s:2:"1x";s:66:"https://ps.w.org/hello-dolly/assets/banner-772x250.jpg?rev=2052855";}s:11:"banners_rtl";a:0:{}s:8:"requires";s:3:"4.6";}}s:7:"checked";a:2:{s:19:"akismet/akismet.php";s:5:"4.2.2";s:9:"hello.php";s:5:"1.7.2";}}', 'no');
 /*!40000 ALTER TABLE `wp_options` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_postmeta: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_postmeta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_postmeta` DISABLE KEYS */;
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
 	(1, 2, '_wp_page_template', 'default'),
@@ -940,7 +940,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 	(5, 8, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:64;s:6:"height";i:64;s:4:"file";s:27:"2022/04/LogoTabadul64PX.jpg";s:5:"sizes";a:0:{}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}');
 /*!40000 ALTER TABLE `wp_postmeta` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_posts: ~9 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_posts: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_posts` DISABLE KEYS */;
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 	(1, 1, '2022-04-25 15:18:46', '2022-04-25 15:18:46', '<!-- wp:paragraph -->\n<p>Bienvenido a WordPress. Esta es tu primera entrada. Edítala o bórrala, ¡luego empieza a escribir!</p>\n<!-- /wp:paragraph -->', '¡Hola, mundo!', '', 'publish', 'open', 'open', '', 'hola-mundo', '', '', '2022-04-25 15:18:46', '2022-04-25 15:18:46', '', 0, 'http://localhost/Tienda-Guretabadul/TrabajoTiendaIkerSimon/Laravel/wordpress/?p=1', 0, 'post', '', 1),
@@ -954,11 +954,11 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 	(9, 1, '2022-04-27 07:35:12', '2022-04-27 07:35:12', '<!-- wp:group {"layout":{"inherit":true}} -->\n<div class="wp-block-group"><!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var(\\u002d\\u002dwp\\u002d\\u002dcustom\\u002d\\u002dspacing\\u002d\\u002dlarge, 8rem)","top":"var(\\u002d\\u002dwp\\u002d\\u002dcustom\\u002d\\u002dspacing\\u002d\\u002dsmall, 1.25rem)"}}},"layout":{"type":"flex","justifyContent":"center"}} -->\n<div class="wp-block-group alignwide" style="padding-top:var(--wp--custom--spacing--small, 1.25rem);padding-bottom:var(--wp--custom--spacing--large, 8rem)"><!-- wp:group {"layout":{"type":"flex","justifyContent":"center"}} -->\n<div class="wp-block-group"><!-- wp:site-logo {"width":64,"shouldSyncIcon":true} /-->\n\n<!-- wp:site-title {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"900","textTransform":"capitalize","letterSpacing":"1px"},"elements":{"link":{"color":{"text":"var:preset|color|vivid-green-cyan"}}}},"textColor":"vivid-green-cyan"} /--></div>\n<!-- /wp:group --></div>\n<!-- /wp:group --></div>\n<!-- /wp:group -->', 'Cabecera', '', 'inherit', 'closed', 'closed', '', '7-revision-v1', '', '', '2022-04-27 07:35:12', '2022-04-27 07:35:12', '', 7, 'http://localhost/Tienda-Guretabadul/TrabajoTiendaIkerSimon/Laravel/wordpress/?p=9', 0, 'revision', '', 0);
 /*!40000 ALTER TABLE `wp_posts` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_termmeta: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_termmeta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_termmeta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `wp_termmeta` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_terms: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_terms: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_terms` DISABLE KEYS */;
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 	(1, 'Sin categoría', 'sin-categoria', 0),
@@ -966,7 +966,7 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 	(3, 'header', 'header', 0);
 /*!40000 ALTER TABLE `wp_terms` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_term_relationships: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_term_relationships: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_term_relationships` DISABLE KEYS */;
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
 	(1, 1, 0),
@@ -975,7 +975,7 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 	(7, 3, 0);
 /*!40000 ALTER TABLE `wp_term_relationships` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_term_taxonomy: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_term_taxonomy: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_term_taxonomy` DISABLE KEYS */;
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
 	(1, 1, 'category', '', 0, 1),
@@ -983,7 +983,7 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 	(3, 3, 'wp_template_part_area', '', 0, 1);
 /*!40000 ALTER TABLE `wp_term_taxonomy` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_usermeta: ~19 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_usermeta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_usermeta` DISABLE KEYS */;
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
 	(1, 1, 'nickname', 'admin'),
@@ -1007,7 +1007,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 	(19, 1, 'wp_user-settings-time', '1651045044');
 /*!40000 ALTER TABLE `wp_usermeta` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadul.wp_users: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla guretabadulsquad.wp_users: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_users` DISABLE KEYS */;
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
 	(1, 'admin', '$P$BKGVyN0b0G59.htD8PcEWJ34ewXzuN0', 'admin', 'iker.sddg@gmail.com', 'http://localhost/Tienda-Guretabadul/TrabajoTiendaIkerSimon/Laravel/wordpress', '2022-04-25 15:18:46', '', 0, 'admin');
