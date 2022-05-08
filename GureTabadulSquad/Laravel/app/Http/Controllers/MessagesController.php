@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Mensaje;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Message;
+
 
 class MessagesController extends Controller
 {
@@ -17,13 +19,12 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        $mensajes = User::all();
-
-        $conversacion = Message::all();
+        $users = User::all();
+        $mensajes = Mensaje::all();
 
         $usuarios= User::where('role_id', 1)->get();
-        
-        return view('secciones.mensajes',['mensajes'=>$mensajes,'usuarios'=>$usuarios,'conversacion'=>$conversacion]);
+
+        return view('secciones.mensajes',['users'=>$users,'mensajes'=>$mensajes,'usuarios'=>$usuarios]);
     }
 
 
@@ -49,22 +50,17 @@ class MessagesController extends Controller
         $datos=$request->all();
 
         $rules= array (
-
-            'fecha' =>'required',
-            'hora' =>'required',
             'email_user1' =>'required',
             'email_user2' =>'required',
-            'ContenidoMensaje' => 'required',
+            'contenido' => 'required',
        
 
            );
 
            $messages= array (
-            'fecha.required' => 'Campo fecha es requerido',
-            'hora.required' => 'Campo hora es requerido',
-            'email_user1.required' => 'Campo email1 es requerido',
+            'email_user1.required' => 'Campo email2 es requerido',
             'email_user2.required' => 'Campo email2 es requerido',
-            'ContenidoMensaje.required' => 'Campo ContenidoMensaje es requerido',
+            'contenido.required' => 'Campo contenido es requerido',
            
            );
 
@@ -81,29 +77,28 @@ class MessagesController extends Controller
             
         }else{
                  //Generar actividad
-                $conversacion=new Message();
-                $conversacion->fecha=$datos["fecha"];
-                $conversacion->hora=$datos["hora"];
-                $conversacion->email_user1=$datos["email_user1"];
-                $conversacion->email_user2=$datos["email_user2"];
-                $conversacion->ContenidoMensaje=$datos["ContenidoMensaje"];
+                $mensajes=new Mensaje();
+                $mensajes->email_user1=$datos["email_user1"];
+                $mensajes->email_user2=$datos["email_user2"];
+                $mensajes->contenido=$datos["contenido"];
+
+                
               
                 
         try{
             //Almacenar en la BD
-            $conversacion->save();
-            dd($conversacion);
+            $mensajes->save();
             //Almacenar el archivo en el servidor
                 //Volver al listado
                 //Mensaje de OK
                 \Session::flash('tipoMensaje','success');
-                \Session::flash('mensaje','Usuario creado correctamente');
+                \Session::flash('mensaje','Mensaje creado correctamente');
 
         }catch(\Exception $e){
             //echo $e->getMessage();
             //Mensaje de KO
             \Session::flash('tipoMensaje','danger');
-            \Session::flash('mensaje','Error al crear el usuario');
+            \Session::flash('mensaje','Error al crear el mensaje');
 
         }
         return \Redirect::back();
@@ -153,6 +148,7 @@ class MessagesController extends Controller
                 \Session::flash('mensaje','Usuario creado correctamente');
 
         }catch(\Exception $e){
+            dd($e);
             //echo $e->getMessage();
             //Mensaje de KO
             \Session::flash('tipoMensaje','danger');
