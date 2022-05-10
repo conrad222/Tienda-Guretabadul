@@ -12,15 +12,61 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Volcando estructura de base de datos para guretabadulsquad
+CREATE DATABASE IF NOT EXISTS `guretabadulsquad` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `guretabadulsquad`;
+
+-- Volcando estructura para tabla guretabadulsquad.conversacion
+CREATE TABLE IF NOT EXISTS `conversacion` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ContenidoMensaje` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `FechaMensaje` date NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `conversacion_user_id_foreign` (`user_id`),
+  CONSTRAINT `conversacion_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.conversacion: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `conversacion` DISABLE KEYS */;
 /*!40000 ALTER TABLE `conversacion` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.cursos: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.cursos
+CREATE TABLE IF NOT EXISTS `cursos` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Fecha_ini` date NOT NULL,
+  `Fecha_fin` date NOT NULL,
+  `precio` double NOT NULL,
+  `capacidad` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.cursos: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
 INSERT INTO `cursos` (`id`, `nombre`, `Fecha_ini`, `Fecha_fin`, `precio`, `capacidad`, `descripcion`, `created_at`, `updated_at`) VALUES
 	(1, 'PRUEBA CURSO', '2022-01-31', '2022-02-18', 12.52, '5', 'fddfasdvssdsdfzdfddffdgdfddfs', '2022-02-02 12:06:00', '2022-02-08 18:35:44');
 /*!40000 ALTER TABLE `cursos` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.cursos_usuarios
+CREATE TABLE IF NOT EXISTS `cursos_usuarios` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `curso_id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cursos_usuarios_user_id_foreign` (`user_id`),
+  KEY `cursos_usuarios_curso_id_foreign` (`curso_id`),
+  CONSTRAINT `cursos_usuarios_curso_id_foreign` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`),
+  CONSTRAINT `cursos_usuarios_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.cursos_usuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `cursos_usuarios` DISABLE KEYS */;
@@ -28,6 +74,26 @@ INSERT INTO `cursos_usuarios` (`id`, `user_id`, `curso_id`, `created_at`, `updat
 	(1, 1, 1, '2022-02-07 08:35:38', '2022-02-07 08:35:38'),
 	(2, 2, 1, NULL, NULL);
 /*!40000 ALTER TABLE `cursos_usuarios` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.data_rows
+CREATE TABLE IF NOT EXISTS `data_rows` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `data_type_id` int(10) unsigned NOT NULL,
+  `field` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `required` tinyint(1) NOT NULL DEFAULT '0',
+  `browse` tinyint(1) NOT NULL DEFAULT '1',
+  `read` tinyint(1) NOT NULL DEFAULT '1',
+  `edit` tinyint(1) NOT NULL DEFAULT '1',
+  `add` tinyint(1) NOT NULL DEFAULT '1',
+  `delete` tinyint(1) NOT NULL DEFAULT '1',
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `order` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `data_rows_data_type_id_foreign` (`data_type_id`),
+  CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.data_rows: ~98 rows (aproximadamente)
 /*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
@@ -132,6 +198,28 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 	(133, 1, 'user_belongstomany_interese_relationship', 'relationship', 'intereses', 0, 1, 1, 1, 1, 1, '{"model":"App\\\\Models\\\\Interes","table":"intereses","type":"belongsToMany","column":"id","key":"id","label":"nombre","pivot_table":"intereses_usuarios","pivot":"1","taggable":"0"}', 17);
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.data_types
+CREATE TABLE IF NOT EXISTS `data_types` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name_singular` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name_plural` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `model_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `policy_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `controller` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `generate_permissions` tinyint(1) NOT NULL DEFAULT '0',
+  `server_side` tinyint(4) NOT NULL DEFAULT '0',
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `data_types_name_unique` (`name`),
+  UNIQUE KEY `data_types_slug_unique` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.data_types: ~14 rows (aproximadamente)
 /*!40000 ALTER TABLE `data_types` DISABLE KEYS */;
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
@@ -151,21 +239,67 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 	(23, 'talleres_usuarios', 'talleres-usuarios', 'Talleres Usuario', 'Talleres Usuarios', NULL, 'App\\Models\\TalleresUsuario', NULL, NULL, NULL, 1, 0, '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}', '2022-02-08 18:40:13', '2022-02-08 18:41:45');
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.failed_jobs
+CREATE TABLE IF NOT EXISTS `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.failed_jobs: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
 /*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.imagenes_cursos: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.imagenes_cursos
+CREATE TABLE IF NOT EXISTS `imagenes_cursos` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ruta` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `curso_id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `imagenes_cursos_curso_id_foreign` (`curso_id`),
+  CONSTRAINT `imagenes_cursos_curso_id_foreign` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.imagenes_cursos: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `imagenes_cursos` DISABLE KEYS */;
 INSERT INTO `imagenes_cursos` (`id`, `ruta`, `curso_id`, `created_at`, `updated_at`) VALUES
 	(1, 'imagenes-cursos\\February2022\\kgbmIkbT9vRJvJTKCoFj.jpg', 1, '2022-02-02 12:09:49', '2022-02-02 12:09:49');
 /*!40000 ALTER TABLE `imagenes_cursos` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.imagenes_talleres: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.imagenes_talleres
+CREATE TABLE IF NOT EXISTS `imagenes_talleres` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ruta` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `taller_id` bigint(20) unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `imagenes_talleres_id_taller_foreign` (`taller_id`) USING BTREE,
+  CONSTRAINT `imagenes_talleres_id_taller_foreign` FOREIGN KEY (`taller_id`) REFERENCES `talleres` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.imagenes_talleres: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `imagenes_talleres` DISABLE KEYS */;
 INSERT INTO `imagenes_talleres` (`id`, `ruta`, `taller_id`, `created_at`, `updated_at`) VALUES
 	(1, 'imagenes-talleres\\February2022\\wOarjQWr5nlEvYCFzG5Q.jpg', 1, '2022-02-02 09:54:00', '2022-02-02 08:55:14');
 /*!40000 ALTER TABLE `imagenes_talleres` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.intereses
+CREATE TABLE IF NOT EXISTS `intereses` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.intereses: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `intereses` DISABLE KEYS */;
@@ -177,6 +311,20 @@ INSERT INTO `intereses` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(5, 'a', '2022-03-07 12:00:22', '2022-03-07 12:00:22');
 /*!40000 ALTER TABLE `intereses` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.intereses_usuarios
+CREATE TABLE IF NOT EXISTS `intereses_usuarios` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `interes_id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `intereses_usuarios_user_id_foreign` (`user_id`),
+  KEY `intereses_usuarios_interes_id_foreign` (`interes_id`),
+  CONSTRAINT `intereses_usuarios_interes_id_foreign` FOREIGN KEY (`interes_id`) REFERENCES `intereses` (`id`),
+  CONSTRAINT `intereses_usuarios_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.intereses_usuarios: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `intereses_usuarios` DISABLE KEYS */;
 INSERT INTO `intereses_usuarios` (`id`, `user_id`, `interes_id`, `created_at`, `updated_at`) VALUES
@@ -187,20 +335,68 @@ INSERT INTO `intereses_usuarios` (`id`, `user_id`, `interes_id`, `created_at`, `
 	(5, 3, 5, NULL, NULL);
 /*!40000 ALTER TABLE `intereses_usuarios` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.matchs: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.matchs
+CREATE TABLE IF NOT EXISTS `matchs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `realizado` tinyint(1) DEFAULT NULL,
+  `direccion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Fecha_encuentro` date NOT NULL,
+  `user1_id` bigint(20) unsigned NOT NULL,
+  `user2_id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `matchs_user1_id_foreign` (`user1_id`),
+  KEY `matchs_user2_id_foreign` (`user2_id`),
+  CONSTRAINT `matchs_user1_id_foreign` FOREIGN KEY (`user1_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `matchs_user2_id_foreign` FOREIGN KEY (`user2_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.matchs: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `matchs` DISABLE KEYS */;
 INSERT INTO `matchs` (`id`, `nombre`, `realizado`, `direccion`, `Fecha_encuentro`, `user1_id`, `user2_id`, `created_at`, `updated_at`) VALUES
 	(4, 'Jorge Andre', NULL, '48991', '2022-02-24', 2, 1, '2022-02-09 17:45:47', '2022-02-09 17:45:47'),
 	(6, 'nnnn', NULL, 'pppp', '2022-04-08', 3, 4, '2022-04-11 08:56:12', '2022-04-11 08:56:12');
 /*!40000 ALTER TABLE `matchs` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.menus: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.menus
+CREATE TABLE IF NOT EXISTS `menus` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `menus_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.menus: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '2022-01-27 11:44:27', '2022-01-27 11:44:27');
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.menu_items: ~25 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.menu_items
+CREATE TABLE IF NOT EXISTS `menu_items` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `menu_id` int(10) unsigned DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `target` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '_self',
+  `icon_class` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `route` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parameters` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `menu_items_menu_id_foreign` (`menu_id`),
+  CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.menu_items: ~24 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 	(2, 1, 'Multimedia', '', '_self', 'voyager-images', NULL, NULL, 3, '2022-01-27 11:44:27', '2022-04-04 10:17:52', 'voyager.media.index', NULL),
@@ -228,6 +424,14 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 	(29, 1, 'Paises', '/admin/paises', '_self', 'voyager-world', '#0facf0', NULL, 11, '2022-02-04 08:36:06', '2022-04-04 10:19:01', NULL, ''),
 	(30, 1, 'Talleres Usuarios', '', '_self', NULL, NULL, 26, 3, '2022-02-08 18:40:13', '2022-02-08 19:18:24', 'voyager.talleres-usuarios.index', NULL);
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.migrations
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.migrations: ~38 rows (aproximadamente)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
@@ -271,6 +475,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(37, '2022_01_27_113223_create_imagenes_curso_table', 2),
 	(38, '2022_03_09_075139_create_productos_table', 3);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.paises
+CREATE TABLE IF NOT EXISTS `paises` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=241 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.paises: ~240 rows (aproximadamente)
 /*!40000 ALTER TABLE `paises` DISABLE KEYS */;
@@ -517,9 +730,28 @@ INSERT INTO `paises` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(240, 'Zimbabue', NULL, NULL);
 /*!40000 ALTER TABLE `paises` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.password_resets
+CREATE TABLE IF NOT EXISTS `password_resets` (
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.password_resets: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.permissions
+CREATE TABLE IF NOT EXISTS `permissions` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `table_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `permissions_key_index` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.permissions: ~80 rows (aproximadamente)
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
@@ -606,6 +838,17 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 	(105, 'delete_talleres_usuarios', 'talleres_usuarios', '2022-02-08 18:40:13', '2022-02-08 18:40:13');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.permission_role
+CREATE TABLE IF NOT EXISTS `permission_role` (
+  `permission_id` bigint(20) unsigned NOT NULL,
+  `role_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`,`role_id`),
+  KEY `permission_role_permission_id_index` (`permission_id`),
+  KEY `permission_role_role_id_index` (`role_id`),
+  CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.permission_role: ~80 rows (aproximadamente)
 /*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
@@ -691,9 +934,32 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 	(105, 1);
 /*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.productos
+CREATE TABLE IF NOT EXISTS `productos` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `precio` double NOT NULL,
+  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imagen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.png',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.productos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.roles
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `roles_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.roles: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
@@ -701,6 +967,20 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) V
 	(1, 'admin', 'Administrador', '2022-01-27 11:44:28', '2022-01-27 11:44:28'),
 	(2, 'user', 'Usuario Normal', '2022-01-27 11:44:28', '2022-01-27 11:44:28');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.settings
+CREATE TABLE IF NOT EXISTS `settings` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order` int(11) NOT NULL DEFAULT '1',
+  `group` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `settings_key_unique` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.settings: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
@@ -717,6 +997,15 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 	(10, 'admin.google_analytics_client_id', 'ID de Cliente para Google Analytics (usado para el tablero de administrador)', NULL, '', 'text', 1, 'Admin');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.skills
+CREATE TABLE IF NOT EXISTS `skills` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.skills: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `skills` DISABLE KEYS */;
 INSERT INTO `skills` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
@@ -726,17 +1015,56 @@ INSERT INTO `skills` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(4, 'Derrapar', NULL, NULL);
 /*!40000 ALTER TABLE `skills` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.skills_usuario: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.skills_usuario
+CREATE TABLE IF NOT EXISTS `skills_usuario` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `skills_id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `skills_usuario_user_id_foreign` (`user_id`),
+  KEY `skills_usuario_skills_id_foreign` (`skills_id`),
+  CONSTRAINT `skills_usuario_skills_id_foreign` FOREIGN KEY (`skills_id`) REFERENCES `skills` (`id`),
+  CONSTRAINT `skills_usuario_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.skills_usuario: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `skills_usuario` DISABLE KEYS */;
 INSERT INTO `skills_usuario` (`id`, `user_id`, `skills_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 4, '2022-02-08 08:40:19', NULL);
 /*!40000 ALTER TABLE `skills_usuario` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.sponsor: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.sponsor
+CREATE TABLE IF NOT EXISTS `sponsor` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripción` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ruta_img_sponsor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.sponsor: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `sponsor` DISABLE KEYS */;
 INSERT INTO `sponsor` (`id`, `nombre`, `descripción`, `ruta_img_sponsor`, `created_at`, `updated_at`) VALUES
 	(1, 'Facebook', 'Este es un texto que sirve como intento de descripcion para comprobar que funciona este proyecto', 'sponsor\\February2022\\SXaPxzaNAACo0hNdsz12.png', '2022-02-08 07:58:04', '2022-02-08 07:58:04');
 /*!40000 ALTER TABLE `sponsor` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.talleres
+CREATE TABLE IF NOT EXISTS `talleres` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `Título` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Fecha_comienzo` date NOT NULL,
+  `Fecha_final` date NOT NULL,
+  `Descripción` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Precio` double NOT NULL,
+  `Capacidad` bigint(20) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.talleres: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `talleres` DISABLE KEYS */;
@@ -746,6 +1074,20 @@ INSERT INTO `talleres` (`id`, `Título`, `Fecha_comienzo`, `Fecha_final`, `Descr
 	(3, 'Tercer Taller', '2022-02-10', '2022-03-05', 'fsfddghfgngngnnnxnb', 152, 21, '2022-02-03 12:45:00', '2022-02-08 18:50:43');
 /*!40000 ALTER TABLE `talleres` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.talleres_usuarios
+CREATE TABLE IF NOT EXISTS `talleres_usuarios` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `taller_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `talleres_usuarios_user_id_foreign` (`user_id`),
+  KEY `talleres_usuarios_id_taller_foreign` (`taller_id`) USING BTREE,
+  CONSTRAINT `talleres_usuarios_id_taller_foreign` FOREIGN KEY (`taller_id`) REFERENCES `talleres` (`id`),
+  CONSTRAINT `talleres_usuarios_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.talleres_usuarios: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `talleres_usuarios` DISABLE KEYS */;
 INSERT INTO `talleres_usuarios` (`id`, `taller_id`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -754,11 +1096,50 @@ INSERT INTO `talleres_usuarios` (`id`, `taller_id`, `user_id`, `created_at`, `up
 	(8, 3, 1, NULL, NULL);
 /*!40000 ALTER TABLE `talleres_usuarios` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.translations
+CREATE TABLE IF NOT EXISTS `translations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `table_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `column_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foreign_key` int(10) unsigned NOT NULL,
+  `locale` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.translations: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `translations` DISABLE KEYS */;
 /*!40000 ALTER TABLE `translations` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.users: ~4 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` bigint(20) unsigned DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'users/default.png',
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Fecha_nac` date DEFAULT NULL,
+  `telefono` int(11) DEFAULT NULL,
+  `direccion_facturacion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pais_id` bigint(20) unsigned DEFAULT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `settings` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  KEY `users_pais_id_foreign` (`pais_id`),
+  KEY `users_role_id_foreign` (`role_id`),
+  CONSTRAINT `users_pais_id_foreign` FOREIGN KEY (`pais_id`) REFERENCES `paises` (`id`),
+  CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.users: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `Fecha_nac`, `telefono`, `direccion_facturacion`, `pais_id`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'jorge', 'jordioni1705@gmail.com', 'users\\January2022\\27WbwJT8aBdHHJwqmdTm.PNG', '2022-03-07 12:57:18', 'Z', '2022-01-23', 56565, NULL, 73, NULL, '{"locale":"es"}', '2022-01-27 11:47:17', '2022-02-08 19:53:45'),
@@ -769,25 +1150,102 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified
 	(6, 2, 'Patricia', 'patricia.ddg@hotmail.com', 'users/default.png', NULL, '$2y$10$5ZH0MeAGSeZU51MqPpTp8.ntvUZfcLoOGbICATnHkK.FIHOa3FfHa', NULL, NULL, NULL, NULL, NULL, NULL, '2022-03-22 13:55:59', '2022-03-22 13:55:59');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.user_roles
+CREATE TABLE IF NOT EXISTS `user_roles` (
+  `user_id` bigint(20) unsigned NOT NULL,
+  `role_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`user_id`,`role_id`),
+  KEY `user_roles_user_id_index` (`user_id`),
+  KEY `user_roles_role_id_index` (`role_id`),
+  CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `user_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.user_roles: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.wp_commentmeta
+CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`meta_id`),
+  KEY `comment_id` (`comment_id`),
+  KEY `meta_key` (`meta_key`(191))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.wp_commentmeta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_commentmeta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `wp_commentmeta` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.wp_comments: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.wp_comments
+CREATE TABLE IF NOT EXISTS `wp_comments` (
+  `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `comment_author` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_content` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_karma` int(11) NOT NULL DEFAULT '0',
+  `comment_approved` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'comment',
+  `comment_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`comment_ID`),
+  KEY `comment_post_ID` (`comment_post_ID`),
+  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
+  KEY `comment_date_gmt` (`comment_date_gmt`),
+  KEY `comment_parent` (`comment_parent`),
+  KEY `comment_author_email` (`comment_author_email`(10))
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.wp_comments: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_comments` DISABLE KEYS */;
 INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
 	(1, 1, 'Un comentarista de WordPress', 'wapuu@wordpress.example', 'https://wordpress.org/', '', '2022-05-04 10:05:50', '2022-05-04 10:05:50', 'Hola, esto es un comentario.\nPara empezar a moderar, editar y borrar comentarios, por favor, visita la pantalla de comentarios en el escritorio.\nLos avatares de los comentaristas provienen de <a href="https://gravatar.com">Gravatar</a>.', 0, '1', '', 'comment', 0, 0);
 /*!40000 ALTER TABLE `wp_comments` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.wp_links
+CREATE TABLE IF NOT EXISTS `wp_links` (
+  `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `link_url` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_image` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_target` varchar(25) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_description` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_visible` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'Y',
+  `link_owner` bigint(20) unsigned NOT NULL DEFAULT '1',
+  `link_rating` int(11) NOT NULL DEFAULT '0',
+  `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `link_rel` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_notes` mediumtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `link_rss` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`link_id`),
+  KEY `link_visible` (`link_visible`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.wp_links: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_links` DISABLE KEYS */;
 /*!40000 ALTER TABLE `wp_links` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.wp_options: ~104 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.wp_options
+CREATE TABLE IF NOT EXISTS `wp_options` (
+  `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `option_name` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `option_value` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `autoload` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'yes',
+  PRIMARY KEY (`option_id`),
+  UNIQUE KEY `option_name` (`option_name`),
+  KEY `autoload` (`autoload`)
+) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.wp_options: ~155 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_options` DISABLE KEYS */;
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 	(1, 'siteurl', 'http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress', 'yes'),
@@ -948,7 +1406,18 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 	(225, 'site_logo', '11', 'yes');
 /*!40000 ALTER TABLE `wp_options` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.wp_postmeta: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.wp_postmeta
+CREATE TABLE IF NOT EXISTS `wp_postmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`meta_id`),
+  KEY `post_id` (`post_id`),
+  KEY `meta_key` (`meta_key`(191))
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.wp_postmeta: ~15 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_postmeta` DISABLE KEYS */;
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
 	(1, 2, '_wp_page_template', 'default'),
@@ -968,7 +1437,39 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 	(15, 17, 'origin', 'theme');
 /*!40000 ALTER TABLE `wp_postmeta` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.wp_posts: ~14 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.wp_posts
+CREATE TABLE IF NOT EXISTS `wp_posts` (
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_content` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_title` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_excerpt` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'publish',
+  `comment_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
+  `ping_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
+  `post_password` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `post_name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `to_ping` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `pinged` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_content_filtered` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `guid` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `menu_order` int(11) NOT NULL DEFAULT '0',
+  `post_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'post',
+  `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_count` bigint(20) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `post_name` (`post_name`(191)),
+  KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
+  KEY `post_parent` (`post_parent`),
+  KEY `post_author` (`post_author`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.wp_posts: ~17 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_posts` DISABLE KEYS */;
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 	(1, 1, '2022-05-04 10:05:50', '2022-05-04 10:05:50', '<!-- wp:paragraph -->\n<p>Bienvenido a WordPress. Esta es tu primera entrada. Edítala o bórrala, ¡luego empieza a escribir!</p>\n<!-- /wp:paragraph -->', '¡Hola, mundo!', '', 'publish', 'open', 'open', '', 'hola-mundo', '', '', '2022-05-04 10:05:50', '2022-05-04 10:05:50', '', 0, 'http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/?p=1', 0, 'post', '', 1),
@@ -990,11 +1491,33 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 	(17, 1, '2022-05-09 10:52:13', '2022-05-09 10:52:13', '', 'Footer', '', 'publish', 'closed', 'closed', '', 'footer', '', '', '2022-05-09 10:52:13', '2022-05-09 10:52:13', '', 0, 'http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/?p=17', 0, 'wp_template_part', '', 0);
 /*!40000 ALTER TABLE `wp_posts` ENABLE KEYS */;
 
+-- Volcando estructura para tabla guretabadulsquad.wp_termmeta
+CREATE TABLE IF NOT EXISTS `wp_termmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`meta_id`),
+  KEY `term_id` (`term_id`),
+  KEY `meta_key` (`meta_key`(191))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
 -- Volcando datos para la tabla guretabadulsquad.wp_termmeta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_termmeta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `wp_termmeta` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.wp_terms: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.wp_terms
+CREATE TABLE IF NOT EXISTS `wp_terms` (
+  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `slug` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `term_group` bigint(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`term_id`),
+  KEY `slug` (`slug`(191)),
+  KEY `name` (`name`(191))
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.wp_terms: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_terms` DISABLE KEYS */;
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 	(1, 'Sin categoría', 'sin-categoria', 0),
@@ -1002,6 +1525,15 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 	(3, 'header', 'header', 0),
 	(4, 'footer', 'footer', 0);
 /*!40000 ALTER TABLE `wp_terms` ENABLE KEYS */;
+
+-- Volcando estructura para tabla guretabadulsquad.wp_term_relationships
+CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
+  `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `term_order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`object_id`,`term_taxonomy_id`),
+  KEY `term_taxonomy_id` (`term_taxonomy_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- Volcando datos para la tabla guretabadulsquad.wp_term_relationships: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_term_relationships` DISABLE KEYS */;
@@ -1018,7 +1550,20 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 	(17, 4, 0);
 /*!40000 ALTER TABLE `wp_term_relationships` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.wp_term_taxonomy: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.wp_term_taxonomy
+CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
+  `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `taxonomy` varchar(32) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `description` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `count` bigint(20) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`term_taxonomy_id`),
+  UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
+  KEY `taxonomy` (`taxonomy`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.wp_term_taxonomy: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_term_taxonomy` DISABLE KEYS */;
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
 	(1, 1, 'category', '', 0, 1),
@@ -1027,7 +1572,18 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 	(4, 4, 'wp_template_part_area', '', 0, 1);
 /*!40000 ALTER TABLE `wp_term_taxonomy` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.wp_usermeta: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.wp_usermeta
+CREATE TABLE IF NOT EXISTS `wp_usermeta` (
+  `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`umeta_id`),
+  KEY `user_id` (`user_id`),
+  KEY `meta_key` (`meta_key`(191))
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.wp_usermeta: ~17 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_usermeta` DISABLE KEYS */;
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
 	(1, 1, 'nickname', 'admin'),
@@ -1049,7 +1605,25 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 	(17, 1, 'wp_dashboard_quick_press_last_post_id', '4');
 /*!40000 ALTER TABLE `wp_usermeta` ENABLE KEYS */;
 
--- Volcando datos para la tabla guretabadulsquad.wp_users: ~0 rows (aproximadamente)
+-- Volcando estructura para tabla guretabadulsquad.wp_users
+CREATE TABLE IF NOT EXISTS `wp_users` (
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_login` varchar(60) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_pass` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_nicename` varchar(50) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_url` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_status` int(11) NOT NULL DEFAULT '0',
+  `display_name` varchar(250) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`ID`),
+  KEY `user_login_key` (`user_login`),
+  KEY `user_nicename` (`user_nicename`),
+  KEY `user_email` (`user_email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- Volcando datos para la tabla guretabadulsquad.wp_users: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `wp_users` DISABLE KEYS */;
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
 	(1, 'admin', '$P$BFJtWkYHxWvqU1pJu3tWYAPlFem9oX1', 'admin', 'iker.sddg@gmail.com', 'http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress', '2022-05-04 10:05:50', '', 0, 'admin');
