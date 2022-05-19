@@ -4,10 +4,10 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
 <script src="typed.js" type="text/javascript"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://unpkg.com/typeit@8.2.0/dist/index.umd.js"></script>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgba(0,0,0,0.5);">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgba(0,0,0);">
     <div class="container-fluid">
 
-        <a id="tabadul" class="navbar-brand" href="<?php echo e(route('home')); ?>"></a>
+        <a id="tabadul" class="navbar-brand" style="color: aquamarine;" href="<?php echo e(route('home')); ?>"></a>
         <script>
             new TypeIt("#tabadul", {
                 strings: "Gure Tabadul",
@@ -78,7 +78,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('tienda.index')); ?>">Tienda</a>
+                    <a class="nav-link" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/wp-admin/index.php">Tienda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="<?php echo e(route('mensajes.index')); ?>">Mensajes</a>
