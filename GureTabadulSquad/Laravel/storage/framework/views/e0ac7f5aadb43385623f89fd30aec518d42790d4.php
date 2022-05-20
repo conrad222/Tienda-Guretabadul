@@ -1,7 +1,7 @@
 
 <link rel="stylesheet" href="<?php echo e(URL::asset('scss/footer.css')); ?>">
 
-<footer class="footer text-center">
+<footer class="footer text-center" style="background-color: rgb(52 49 49);"">
     <div class="container">
         <div class="row">
             <!-- Footer Location-->

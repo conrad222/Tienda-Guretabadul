@@ -4,7 +4,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
 <script src="typed.js" type="text/javascript"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://unpkg.com/typeit@8.2.0/dist/index.umd.js"></script>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgba(0,0,0);">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(52 49 49);">
     <div class="container-fluid">
 
         <a id="tabadul" class="navbar-brand" style="color: aquamarine;" href="<?php echo e(route('home')); ?>"></a>
@@ -48,19 +48,19 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                 <?php if(!Auth::check()): ?>
                
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('cursos.index')); ?>">Cursos</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('cursos.index')); ?>">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/wp-admin/index.php">Tienda</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/wp-admin/index.php">Tienda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('login')); ?>">Inicio Sesión</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('login')); ?>">Inicio Sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('register')); ?>">Registrarse</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('register')); ?>">Registrarse</a>
                 </li>
                 <?php else: ?> 
 
@@ -68,23 +68,23 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
 <?php if(Auth::user()->role_id=="1"): ?>
 
                 <li class="nav-item">
-            <a class="nav-link active" id="admin" onMouseOver="this.style.cssText='color: #cc0000'" onMouseOut="this.style.cssText='color: #fff'"  aria-current="page" href="<?php echo e(route('voyager.dashboard')); ?>">Administradora</a></a>
+            <a class="nav-link active" style="color: aquamarine" id="admin" onMouseOver="this.style.cssText='color: #cc0000'" onMouseOut="this.style.cssText='color: #fff'"  aria-current="page" href="<?php echo e(route('voyager.dashboard')); ?>">Administradora</a></a>
             </li>
             <?php endif; ?>
             <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('cursos.index')); ?>" >Cursos</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('cursos.index')); ?>" >Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/wp-admin/index.php">Tienda</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/wp-admin/index.php">Tienda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('mensajes.index')); ?>">Mensajes</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('mensajes.index')); ?>">Mensajes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href=""
+                    <a class="nav-link active" aria-current="page" style="color: aquamarine" href=""
                         onclick="event.preventDefault(); document.getElementById('logout').submit();">Cerrar sesion</a>
                     <!-- Solo usuarios identificados -->
                     <form id="logout" action="<?php echo e(route('logout')); ?>" method="POST" style="display:none;">
@@ -92,7 +92,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo e(route('perfil.index')); ?>">Ver perfil</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('perfil.index')); ?>">Ver perfil</a>
                 </li>
          
 

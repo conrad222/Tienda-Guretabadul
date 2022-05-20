@@ -5,10 +5,11 @@
 <link rel="stylesheet" href="<?php echo e(URL::asset('css/footer.css')); ?>">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('contenido'); ?>
+<body style="  background: linear-gradient(180deg, #47d1ac 0%,  #1f687a 50%, #0A58CA 100%)">
 <div class="slider" >
     <ul>
-        <li style="list-style:none"><img src="<?php echo e(url('img/imagen2.png')); ?>" style="margin-left: 40px;"></li>
-        <li style="list-style:none"><img src="<?php echo e(url('img/imagen1.png')); ?>" style="padding-right: 55px;"></li>
+        <li style="list-style:none"><img src="<?php echo e(url('img/imagen2.png')); ?>" style="margin-left: 120px;"></li>
+        
     </ul>
 
 </div>
@@ -31,8 +32,9 @@
         </div>
     </div>
     <div class="nosotros" style=" ">
-        <h3 class="titulo" style="margin-bottom: 30px; margin-top: 60px;">¿Quiénes Somos?</h3>
-        <h4 class="subtitulo" style="margin-bottom: 100px; ">APRENDE Y COMPARTE</h4>
+    
+        <h3 class="titulo" style="margin-bottom: 20px; margin-top: 80px;">¿Quiénes Somos?</h3>
+        <h4 class="subtitulo" style="margin-bottom: 50px; ">APRENDE Y COMPARTE</h4>
         <div class="flexbox-containerQ">
             <div class="texto" style="padding-bottom: 30px;">
             Somos un proyecto de ayuda a las mujeres que quieran relacionarse con otras personas para saber más acerca de sus culturas, religiones, experiencias personales y entender en la situación en la que están para apoyarlas.
@@ -42,18 +44,19 @@
     </div>
 </div>
 <!-- </div> -->
-
-<h3 class="titulo" style="margin-bottom:30px;margin-top:20px;">Colaboradores</h3>
+<li style="list-style:none"><img src="<?php echo e(url('img/imagen1.png')); ?>" style="width: 600px; margin-left: 350px;"></li>
+<h3 class="titulo" style="margin-bottom:30px; margin-top:70px;">Colaboradores</h3>
 <div class="sponsors" style="margin-bottom: 5%;">
     <?php $__currentLoopData = $sponsors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sponsor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="sponsor">
         <div class="cuadroImagen">
-    <img class="sponsorFoto" src="storage/<?php echo e($sponsor->ruta_img_sponsor); ?>">
+    <img class="sponsorFoto" style="width:150px;" src="storage/<?php echo e($sponsor->ruta_img_sponsor); ?>">
         </div>
     </div>   
 
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</body>
 </div>
 <?php echo $__env->make('layout.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

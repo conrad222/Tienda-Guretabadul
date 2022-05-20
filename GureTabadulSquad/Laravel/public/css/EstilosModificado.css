@@ -9,6 +9,7 @@
 
 body {
   font-family: 'Poppins';
+  background: linear-gradient(180deg, #47d1ac 0%,  #1f687a 50%, #0A58CA 100%)
 }
 
 nav {

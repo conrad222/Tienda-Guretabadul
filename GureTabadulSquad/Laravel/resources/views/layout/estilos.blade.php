@@ -22,15 +22,7 @@ img[alt="logo"]:hover{
         border-radius: 100%;
     }
 
-   .nav-link {
-    transition: background-color 1s;
-    border-radius:100%;
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #64a19d;
-    text-decoration: none;
-    -webkit-animation: colorchange 20s infinite alternate;
-}
+  
 
 .nav-link:hover, .nav-link:focus {
   color: #50817e;
@@ -42,31 +34,6 @@ img[alt="logo"]:hover{
   cursor: default;
 }
 
-@-webkit-keyframes colorchange {
-  0% {
-    color: grey;
-  }
-  
-  
-  20% {
-    color: #d35400;
-  }
-  40% {
-    color: #924444;
-  }
-  60% {
-    color: crimson;
-  }
- 
-  
-  80% {
-    color: #f1c40f;
-  }
-  100% {
-    color: chartreuse;
-  }
-
-}
 
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
