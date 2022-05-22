@@ -237,3 +237,27 @@ Stack trace:
 #19 {main}
   thrown in C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\Requests\IDNAEncoder.php on line 70
 
+2022-05-22T14:56:31+00:00 CRITICAL Uncaught Requests_Exception: Provided string is too long in C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\Requests\IDNAEncoder.php:70
+Stack trace:
+#0 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\Requests\IDNAEncoder.php(46): Requests_IDNAEncoder::to_ascii('localhost/Tiend...')
+#1 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-content\plugins\elementor\core\utils\str.php(20): Requests_IDNAEncoder::encode('localhost/Tiend...')
+#2 [internal function]: Elementor\Core\Utils\Str::Elementor\Core\Utils\{closure}(Array)
+#3 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-content\plugins\elementor\core\utils\str.php(19): preg_replace_callback('/(https?:\\/\\/)(...', Object(Closure), 'http://localhos...')
+#4 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-content\plugins\elementor\core\common\modules\connect\apps\base-app.php(253): Elementor\Core\Utils\Str::encode_idn_url('http://localhos...')
+#5 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-content\plugins\elementor\core\app\modules\kit-library\module.php(68): Elementor\Core\Common\Modules\Connect\Apps\Base_App->get_admin_url('authorize', Array)
+#6 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-content\plugins\elementor\core\app\modules\kit-library\module.php(99): Elementor\Core\App\Modules\KitLibrary\Module->set_kit_library_settings()
+#7 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\class-wp-hook.php(307): Elementor\Core\App\Modules\KitLibrary\Module->Elementor\Core\App\Modules\KitLibrary\{closure}('')
+#8 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#9 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\plugin.php(474): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-content\plugins\elementor\includes\plugin.php(646): do_action('elementor/init')
+#11 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\class-wp-hook.php(307): Elementor\Plugin->init('')
+#12 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#13 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\plugin.php(474): WP_Hook->do_action(Array)
+#14 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-settings.php(587): do_action('init')
+#15 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-config.php(96): require_once('C:\\xampp\\htdocs...')
+#16 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-admin\admin.php(34): require_once('C:\\xampp\\htdocs...')
+#18 C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-admin\plugins.php(10): require_once('C:\\xampp\\htdocs...')
+#19 {main}
+  thrown in C:\xampp\htdocs\Tienda-Guretabadul\GureTabadulSquad\Laravel\wordpress\wp-includes\Requests\IDNAEncoder.php on line 70
+
