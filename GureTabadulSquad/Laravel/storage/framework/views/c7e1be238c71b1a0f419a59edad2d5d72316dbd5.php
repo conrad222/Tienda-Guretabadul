@@ -54,7 +54,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                     <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/wp-admin/index.php">Tienda</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/">Tienda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('login')); ?>">Inicio Sesión</a>
@@ -78,7 +78,7 @@ Illuminate\Support\Facades\App::setLocale(session('idioma'));
                     <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('taller.index')); ?>">Taller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/wp-admin/index.php">Tienda</a>
+                    <a class="nav-link" style="color: aquamarine" aria-current="page" href="http://localhost/Tienda-Guretabadul/GureTabadulSquad/Laravel/wordpress/wp-admin/">Tienda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" style="color: aquamarine" aria-current="page" href="<?php echo e(route('mensajes.index')); ?>">Mensajes</a>
