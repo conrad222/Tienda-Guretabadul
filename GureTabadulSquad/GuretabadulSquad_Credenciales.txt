@@ -1,2 +1,2 @@
-Usuario Correo: user@gmail.com  Contraseña: userpassword
-Admin Correo: admin@gmail.com   Contraseña: adminpassword
+Usuario: usuario Correo: user@gmail Contraseña: z
+Usuario: admin Correo: admin@gmail Contraseña: z
